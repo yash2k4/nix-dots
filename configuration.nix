@@ -150,6 +150,7 @@
     gradle
     hypridle
     hyprlock
+    hyprshot
     jetbrains.idea-oss
     kitty
     lazydocker
