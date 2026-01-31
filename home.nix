@@ -5,6 +5,8 @@
   home.homeDirectory = "/home/yashy";
   home.stateVersion = "25.11";
 
+  programs.home-manager.enable = true;
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -15,6 +17,7 @@
   ];
 
   home.packages = with pkgs; [
+    home-manager
     neovim
     (pkgs.writeShellApplication {
       name = "ns";
