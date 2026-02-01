@@ -39,7 +39,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     docker
-    ly
+    fd
     hypridle
     hyprlock
     hyprshot
