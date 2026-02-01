@@ -2,15 +2,45 @@
 
 {
   home.packages = with pkgs; [
-    neovim
-
-    (pkgs.writeShellApplication {
-      name = "ns";
-      runtimeInputs = [
-        fzf
-        nix-search-tv
-      ];
-      text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
-    })
+    bat
+    btop
+    cava
+    cbonsai
+    cointop
+    cowsay
+    dysk
+    fastfetch
+    figlet
+    gh
+    go
+    gradle
+    kitty
+    lazydocker
+    lazygit
+    lsd
+    man
+    maven
+    nerd-fonts.jetbrains-mono
+    nerdfetch
+    nitch
+    pastel
+    rustup
+    speedtest-cli
+    spotify
+    stow
+    tealdeer
+    tree
+    tty-clock
+    unimatrix
+    unzip
+    pfetch-rs
+    vesktop
+    vscode
+    wget
+    wlsunset
+    yazi
+    zig
+    zip
+    zoxide
   ];
 }

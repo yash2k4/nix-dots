@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 7;
@@ -35,8 +34,6 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -52,35 +49,15 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   users.users.yashy = {
     isNormalUser = true;
-    description = "yashY";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [];
   };
 
   nixpkgs.config.allowUnfree = true;
 
   fonts.fontconfig.enable = true;
-
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
@@ -89,12 +66,10 @@
   ];
 
   services.upower.enable = true;
+  services.tlp.enable = true;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
-  services.power-profiles-daemon.enable = false;
-  services.tlp.enable = true;
 
   virtualisation.docker.enable = true;
 
@@ -102,68 +77,14 @@
   services.dbus.enable = true;
 
   environment.systemPackages = with pkgs; [
-    bat
-    bibata-cursors
-    btop
-    brightnessctl
-    cargo-seek
-    catppuccin-papirus-folders
-    cava
-    cbonsai
-    cointop
-    cowsay
     docker
-    dysk
-    fastfetch
-    figlet
-    firefox
-    fuzzel
-    gh
-    go
-    gradle
+    ly
     hypridle
     hyprlock
     hyprshot
-    jetbrains.idea-oss
-    jdk21
-    kitty
-    lazydocker
-    lazygit
-    localsend
-    lsd
-    ly
-    man
-    maven
-    nemo
-    nerd-fonts.jetbrains-mono
-    nerdfetch
-    nitch
-    noctalia-shell
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    nwg-look
-    pastel
-    rustup
-    speedtest-cli
-    spotify
-    stow
-    tealdeer
-    tlp
-    tree
-    tty-clock
-    unimatrix
-    unzip
-    pfetch-rs
-    vesktop
-    vscode
     waybar
-    wget
     wl-clipboard
-    wlsunset
-    yazi
-    zig
-    zip
-    zoxide
+    brightnessctl
   ];
 
   nix.settings.experimental-features = [
