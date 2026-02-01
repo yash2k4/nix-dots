@@ -13,7 +13,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
-  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Kolkata";
