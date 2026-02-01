@@ -115,7 +115,6 @@
   home.file.".config/kitty".source  = ./config/kitty;
   home.file.".config/nvim".source   = ./config/nvim;
   home.file.".config/fuzzel".source = ./config/fuzzel;
-  home.file.".config/scripts".source = ./config/scripts;
   home.file.".config/yazi".source = ./config/yazi;
   home.file.".config/lazydocker".source = ./config/lazydocker;
   home.file.".config/lazygit".source = ./config/lazygit;
