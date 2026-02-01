@@ -141,7 +141,6 @@
     firefox
     fuzzel
     gh
-    git
     go
     gradle
     hypridle
