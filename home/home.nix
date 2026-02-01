@@ -1,8 +1,22 @@
-{ ... }:
+{ config, pkgs, ... }:
 
 {
+  home.username = "yashy";
+  home.homeDirectory = "/home/yashy";
+  home.stateVersion = "25.11";
+
+  programs.home-manager.enable = true;
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
+  home.sessionPath = [
+    "$HOME/.config/scripts"
+  ];
+
   imports = [
-    ./modules/files.nix
     ./modules/git.nix
     ./modules/packages.nix
     ./modules/zsh.nix
