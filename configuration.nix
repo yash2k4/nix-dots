@@ -147,7 +147,7 @@
     hypridle
     hyprlock
     hyprshot
-    jetbrains.idea-oss
+    jetbrains.idea
     jdk21
     kitty
     lazydocker
