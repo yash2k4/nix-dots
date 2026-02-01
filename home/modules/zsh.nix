@@ -27,8 +27,7 @@
       lzg = "lazygit";
       neofetch = "fastfetch";
       pc = "pastel color";
-      rbld = "sudo nixos-rebuild switch --flake ~/nix-dots#nixos";
-      rbldu = "nix flake update ~/nix-dots && sudo nixos-rebuild switch --flake ~/nix-dots#nixos";
+      rbldan = "sudo nixos-rebuild switch --flake ~/nix-dots#acerNitro";
       sai = "system-age-info";
       sybau = "shutdown now";
       tock = "tty-clock -C 5 -b -s -c";
