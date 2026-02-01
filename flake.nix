@@ -1,5 +1,5 @@
 {
-  description = "Hyprland on Nixos";
+  description = "yashy@NixOS-acerNitro";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -28,7 +28,7 @@
   in
   {
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
+      acerNitro = nixpkgs.lib.nixosSystem {
         inherit system;
 
         modules = [
