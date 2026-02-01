@@ -6,40 +6,31 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
+  home-manager.users.yashy = import ./home/home.nix;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 7;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # NVIDIA Wayland requirement
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
   networking.hostName = "nixos";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Time zone
   time.timeZone = "Asia/Kolkata";
 
-  # Ly login manager
   services.xserver.enable = true;
   services.displayManager.ly.enable = true;
   services.displayManager.ly.settings.session_log = false;
 
-  # Hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
 
-  # NVIDIA proprietary driver
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # Graphics (new unstable syntax)
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -49,7 +40,7 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = false; # RTX 4050
+    open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
@@ -60,10 +51,8 @@
     XDG_SESSION_TYPE = "wayland";
   };
 
-  # Zsh
   programs.zsh.enable = true;
 
-  # Locale
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -78,13 +67,11 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # X11 keymap
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
-  # User
   users.users.yashy = {
     isNormalUser = true;
     description = "yashY";
@@ -93,10 +80,8 @@
     packages = with pkgs; [];
   };
 
-  # Allow unfree
   nixpkgs.config.allowUnfree = true;
 
-  # Fonts
   fonts.fontconfig.enable = true;
 
   fonts.packages = with pkgs; [
@@ -106,7 +91,6 @@
     bibata-cursors
   ];
 
-  # Power / system widgets
   services.upower.enable = true;
 
   hardware.bluetooth.enable = true;
@@ -115,14 +99,11 @@
   services.power-profiles-daemon.enable = false;
   services.tlp.enable = true;
 
-  # Docker
   virtualisation.docker.enable = true;
 
-  # Polkit / dbus
   security.polkit.enable = true;
   services.dbus.enable = true;
 
-  # System packages
   environment.systemPackages = with pkgs; [
     bat
     bibata-cursors
@@ -188,15 +169,12 @@
     zoxide
   ];
 
-  # Nix features
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # OpenSSH
   services.openssh.enable = true;
 
-  # State version
   system.stateVersion = "25.11";
 }

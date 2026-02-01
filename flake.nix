@@ -1,8 +1,9 @@
 {
-  description = "Hyprland on Nixos";
+  description = "yashy@NixOS-acerNitro";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +14,6 @@
   let
     system = "x86_64-linux";
 
-    # 🔧 Overlay: make btop see libnvidia-ml.so.1 (NVML)
     btop-nvidia-overlay = final: prev: {
       btop = prev.btop.overrideAttrs (old: {
         nativeBuildInputs =
@@ -31,18 +31,18 @@
       inherit system;
 
       modules = [
-        # 👇 Overlay injected here — nothing else changed
         ({ ... }: {
           nixpkgs.overlays = [ btop-nvidia-overlay ];
         })
 
         ./configuration.nix
         home-manager.nixosModules.home-manager
+
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.yashy = import ./home.nix;
+            users.yashy = import ./home/home.nix;
             backupFileExtension = "backup";
           };
         }
