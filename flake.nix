@@ -1,5 +1,5 @@
 {
-  description = "yashy@NixOS-acerNitro";
+  description = "Hyprland on Nixos";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -27,26 +27,27 @@
     };
   in
   {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      inherit system;
+    nixosConfigurations = {
+      laptop = nixpkgs.lib.nixosSystem {
+        inherit system;
 
-      modules = [
-        ({ ... }: {
-          nixpkgs.overlays = [ btop-nvidia-overlay ];
-        })
+        modules = [
+          ({ ... }: {
+            nixpkgs.overlays = [ btop-nvidia-overlay ];
+          })
 
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
+          ./hosts/laptop/configuration.nix
+          home-manager.nixosModules.home-manager
 
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.yashy = import ./home/home.nix;
-            backupFileExtension = "backup";
-          };
-        }
-      ];
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.yashy = import ./home/home.nix;
+            };
+          }
+        ];
+      };
     };
   };
 }
