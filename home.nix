@@ -17,7 +17,6 @@
   ];
 
   home.packages = with pkgs; [
-    home-manager
     neovim
     (pkgs.writeShellApplication {
       name = "ns";
