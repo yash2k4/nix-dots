@@ -36,7 +36,7 @@
             nixpkgs.overlays = [ btop-nvidia-overlay ];
           })
 
-          ./hosts/laptop/configuration.nix
+          ./hosts/acerNitro/configuration.nix
           home-manager.nixosModules.home-manager
 
           {
