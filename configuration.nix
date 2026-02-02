@@ -36,14 +36,16 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
     neovim
     docker
-    fd
+    fuzzel
+    nwg-look
     hypridle
     hyprlock
     hyprshot
-    waybar
+    noctalia-shell
     wl-clipboard
     brightnessctl
   ];
