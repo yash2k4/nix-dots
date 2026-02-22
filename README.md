@@ -9,7 +9,3 @@ Built for my laptop. Ready for more machines when I am.
 
 NixOS + flakes + Home Manager (as a module).  
 One source of truth. No overengineering.
-
----
-
-## Rebuild
