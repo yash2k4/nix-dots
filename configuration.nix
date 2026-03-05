@@ -5,142 +5,36 @@
     ./hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
-
-  networking = {
-    hostName = "nixro";
-    networkmanager.enable = true;
-
-    firewall = {
-      enable = true;
-
-      allowedTCPPorts = [
-        22
-        80
-        443
-        53317
-      ];
-
-      allowedUDPPorts = [
-        53317
-        5353
-      ];
-    };
-  };
-
-  time.timeZone = "Asia/Kolkata";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
-    };
-  };
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  programs = {
-    zsh.enable = true;
-    firefox.enable = true;
-    niri.enable = true;
-  };
-
-  users.users.yash2k4 = {
-    isNormalUser = true;
-    description = "yash2k4";
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [];
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
-    bluetooth.enable = true;
-
-    nvidia = {
-      modesetting.enable = true;
-      open = true;
-      nvidiaSettings = true;
-      nvidiaPersistenced = true;
-
-      powerManagement = {
-        enable = true;
-        finegrained = true;
-      };
-
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-      prime = {
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
-    };
-  };
-
-  services = {
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "catppuccin-mocha-mauve";
-    };
-
-    openssh.enable = true;
-    power-profiles-daemon.enable = true;
-    thermald.enable = true;
-    upower.enable = true;
-  };
-
-  powerManagement.powertop.enable = true;
-
-  virtualisation.docker.enable = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
+    initrd.kernelModules = [
+      "nvidia"
+      "nvidia_drm"
+      "nvidia_modeset"
+      "nvidia_uvm"
     ];
+
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    kernelParams = [
+      "nvidia-drm.modeset=1"
+    ];
+
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+    };
   };
 
   environment = {
     sessionVariables = {
-      NIXOS_OZONE_WL = "1";
       GBM_BACKEND = "nvidia-drm";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       LIBVA_DRIVER_NAME = "nvidia";
+      NIXOS_OZONE_WL = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
 
     systemPackages = with pkgs; [
-
       ani-cli
       asciiquarium
       astroterm
@@ -157,11 +51,11 @@
       eza
       fastfetch
       figlet
+      foot
       fortune
       fuzzel
       fzf
       gh
-      ghostty
       glab
       go
       gradle
@@ -187,7 +81,6 @@
       pastel
       pfetch-rs
       pipes
-      polkit_gnome
       postman
       ruby
       sl
@@ -196,6 +89,9 @@
       spicetify-cli
       spotify
       starship
+      swaybg
+      swayidle
+      swaylock-effects
       tealdeer
       trash-cli
       tree
@@ -207,9 +103,7 @@
       vscode
       wget
       wl-clipboard
-      wlsunset
       xdg-desktop-portal
-      xwayland-satellite
       yazi
       zathura
       zoxide
@@ -217,8 +111,8 @@
       zip
 
       (catppuccin-sddm.override {
-        flavor = "mocha";
         accent = "mauve";
+        flavor = "mocha";
         font = "JetBrainsMono Nerd Font";
         fontSize = "9";
         loginBackground = true;
@@ -233,5 +127,141 @@
     noto-fonts-color-emoji
   ];
 
+  hardware = {
+    bluetooth.enable = true;
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      nvidiaPersistenced = true;
+      nvidiaSettings = true;
+      open = true;
+
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+
+      prime = {
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+      };
+    };
+  };
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
+  };
+
+  networking = {
+    firewall = {
+      enable = true;
+
+      allowedTCPPorts = [
+        22
+        80
+        443
+        53317
+      ];
+
+      allowedUDPPorts = [
+        53317
+        5353
+      ];
+    };
+
+    hostName = "nixro";
+    networkmanager.enable = true;
+  };
+
+  nix.settings.experimental-features = [
+    "flakes"
+    "nix-command"
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+
+  powerManagement.powertop.enable = true;
+
+  programs = {
+    firefox.enable = true;
+
+    sway = {
+      enable = true;
+      package = pkgs.swayfx;
+      wrapperFeatures.gtk = true;
+    };
+
+    zsh.enable = true;
+  };
+
+  services = {
+    displayManager.sddm = {
+      enable = true;
+      theme = "catppuccin-mocha-mauve";
+      wayland.enable = true;
+    };
+
+    openssh.enable = true;
+    power-profiles-daemon.enable = true;
+    thermald.enable = true;
+    upower.enable = true;
+  };
+
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
+  };
+
   system.stateVersion = "25.11";
+
+  time.timeZone = "Asia/Kolkata";
+
+  users.users.yash2k4 = {
+    description = "yash2k4";
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "wheel"
+    ];
+    isNormalUser = true;
+    shell = pkgs.zsh;
+  };
+
+  virtualisation.docker.enable = true;
+
+  xdg.portal = {
+    enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+    ];
+  };
 }
