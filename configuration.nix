@@ -14,8 +14,24 @@
   };
 
   networking = {
-    hostName = "nixos";
+    hostName = "nixro";
     networkmanager.enable = true;
+
+    firewall = {
+      enable = true;
+
+      allowedTCPPorts = [
+        22
+        80
+        443
+        53317
+      ];
+
+      allowedUDPPorts = [
+        53317
+        5353
+      ];
+    };
   };
 
   time.timeZone = "Asia/Kolkata";
@@ -49,7 +65,7 @@
   users.users.yash2k4 = {
     isNormalUser = true;
     description = "yash2k4";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
@@ -97,9 +113,14 @@
     };
 
     openssh.enable = true;
-    upower.enable = true;
     power-profiles-daemon.enable = true;
+    thermald.enable = true;
+    upower.enable = true;
   };
+
+  powerManagement.powertop.enable = true;
+
+  virtualisation.docker.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -119,35 +140,13 @@
     };
 
     systemPackages = with pkgs; [
-      neovim
-      wget
-      nitch
-      fastfetch
-      ghostty
-      fuzzel
-      nemo
-      jetbrains.idea
-      vscode
-      localsend
-      postman
-      jdk21_headless
-      spotify
-      yazi
-      zathura
-      btop
-      wl-clipboard
-      vesktop
-      eza
-      nwg-look
-      xwayland-satellite
-      zoxide
-      fzf
-      starship
+
       ani-cli
       asciiquarium
       astroterm
       bat
       brightnessctl
+      btop
       catppuccin-gtk
       cava
       cbonsai
@@ -155,32 +154,48 @@
       cowsay
       docker-compose
       dysk
+      eza
+      fastfetch
       figlet
-      flameshot
       fortune
+      fuzzel
+      fzf
+      gh
+      ghostty
+      glab
       go
       gradle
       grim
+      jdk21_headless
+      jetbrains.idea
       kotlin
       lazydocker
       lazygit
       libqalculate
+      localsend
       lsd
       man-db
       maven
+      nemo
       nerdfetch
+      neovim
+      nitch
       nodejs
+      nwg-look
       obsidian
       papirus-icon-theme
       pastel
       pfetch-rs
       pipes
       polkit_gnome
+      postman
       ruby
       sl
       slurp
       speedtest-cli
       spicetify-cli
+      spotify
+      starship
       tealdeer
       trash-cli
       tree
@@ -188,12 +203,18 @@
       unimatrix
       unzip
       uwufetch
+      vesktop
+      vscode
+      wget
+      wl-clipboard
       wlsunset
+      xdg-desktop-portal
+      xwayland-satellite
+      yazi
+      zathura
+      zoxide
       zig
       zip
-      gh
-      glab
-      xdg-desktop-portal
 
       (catppuccin-sddm.override {
         flavor = "mocha";
