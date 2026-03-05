@@ -6,49 +6,60 @@
 @define-color crust #11111b;
 
 * {
-    font-family: "JetBrainsMono Nerd Font Propo";
-    font-size: 15px;
-    font-weight: 600;
-    border: none;
-    min-height: 0;
-}
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  min-height: 0;
+  }
 
 window#waybar {
-    background: transparent;
-    margin: 12px 28px 0 28px;
+background: transparent;
+margin: 12px 28px 0 28px;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    background: transparent;
-    padding: 0;
+background: transparent;
+padding: 0;
+}
+
+/* NixOS logo module */
+#custom-nixos {
+background: @bg;
+color: @mauve;
+font-size: 20px;
+padding: 4px 16px;
+margin-right: 12px;
+margin-left: 6px;
+border-radius: 999px;
 }
 
 #workspaces {
-    background: transparent;
+background: transparent;
 }
 
 #workspaces button {
-    background: @bg;
-    color: @subtext;
-    padding: 4px 16px;
-    margin-right: 12px;
-    border-radius: 999px;
+background: @bg;
+color: @subtext;
+padding: 4px 16px;
+margin-right: 12px;
+border-radius: 999px;
 }
 
 #workspaces button.visible {
-    background: rgba(49, 50, 68, 0.85);
-    color: @text;
+background: rgba(49, 50, 68, 0.85);
+color: @text;
 }
 
 #workspaces button.active {
-    background: @active;
-    color: @crust;
+background: @active;
+color: @crust;
 }
 
 #workspaces button:hover {
-    background: rgba(49, 50, 68, 0.8);
+background: rgba(49, 50, 68, 0.8);
 }
 
 #network,
@@ -58,8 +69,8 @@ window#waybar {
 #pulseaudio,
 #backlight,
 #clock {
-    background: @bg;
-    border-radius: 999px;
-    padding: 4px 16px;
-    margin-left: 12px;
+background: @bg;
+border-radius: 999px;
+padding: 4px 16px;
+margin-left: 12px;
 }
