@@ -1,24 +1,13 @@
 {
-  description = "Niri on NixOS";
+  description = "SwayFX on NixOS";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.noctalia-qs.follows = "noctalia-qs";
-    };
-
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -34,14 +23,12 @@
 
         {
           home-manager = {
+            backupFileExtension = "backup";
+            extraSpecialArgs = { inherit inputs; };
             useGlobalPkgs = true;
             useUserPackages = true;
 
             users.yash2k4 = import ./home.nix;
-
-            backupFileExtension = "backup";
-
-            extraSpecialArgs = { inherit inputs; };
           };
         }
       ];
