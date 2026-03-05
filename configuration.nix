@@ -2,7 +2,7 @@
 
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   boot = {
@@ -68,6 +68,7 @@
       libqalculate
       localsend
       lsd
+      ly
       man-db
       maven
       nemo
@@ -82,6 +83,7 @@
       pfetch-rs
       pipes
       postman
+      rofi
       ruby
       sl
       slurp
@@ -101,6 +103,7 @@
       uwufetch
       vesktop
       vscode
+      waybar
       wget
       wl-clipboard
       xdg-desktop-portal
@@ -109,14 +112,6 @@
       zoxide
       zig
       zip
-
-      (catppuccin-sddm.override {
-        accent = "mauve";
-        flavor = "mocha";
-        font = "JetBrainsMono Nerd Font";
-        fontSize = "9";
-        loginBackground = true;
-      })
     ];
   };
 
@@ -219,12 +214,7 @@
   };
 
   services = {
-    displayManager.sddm = {
-      enable = true;
-      theme = "catppuccin-mocha-mauve";
-      wayland.enable = true;
-    };
-
+    displayManager.ly.enable = true;
     openssh.enable = true;
     power-profiles-daemon.enable = true;
     thermald.enable = true;
