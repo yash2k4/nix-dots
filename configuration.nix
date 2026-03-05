@@ -39,6 +39,8 @@
       asciiquarium
       astroterm
       bat
+      bibata-cursors
+      bluetui
       brightnessctl
       btop
       catppuccin-gtk
@@ -60,6 +62,7 @@
       go
       gradle
       grim
+      impala
       jdk21_headless
       jetbrains.idea
       kotlin
@@ -68,7 +71,6 @@
       libqalculate
       localsend
       lsd
-      ly
       man-db
       maven
       nemo
@@ -98,6 +100,7 @@
       trash-cli
       tree
       tty-clock
+      tuigreet
       unimatrix
       unzip
       uwufetch
@@ -112,6 +115,12 @@
       zoxide
       zig
       zip
+      (pkgs.makeDesktopItem {
+        name = "sway-nvidia";
+        desktopName = "Sway (NVIDIA)";
+        exec = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
+        type = "Application";
+      })
     ];
   };
 
@@ -190,6 +199,8 @@
 
     hostName = "nixro";
     networkmanager.enable = true;
+    wireless.iwd.enable = true;
+    networkmanager.wifi.backend = "iwd";
   };
 
   nix.settings.experimental-features = [
@@ -214,7 +225,16 @@
   };
 
   services = {
-    displayManager.ly.enable = true;
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --time";
+          user = "greeter";
+        };
+      };
+    };
+
     openssh.enable = true;
     power-profiles-daemon.enable = true;
     thermald.enable = true;

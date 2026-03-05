@@ -51,8 +51,6 @@ exec_always autotiling
 exec ~/.config/sway/battery-warning
 exec_always sh -c 'killall -q waybar; waybar &'
 
-# Idle / lock configuration
-
 exec_always --no-startup-id sh -c 'pkill -x swayidle; swayidle -w timeout 300 "swaylock -f" before-sleep "swaylock -f"'
 
 input * {
@@ -77,10 +75,10 @@ bindsym $mod+n exec $fm
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+Escape exec swaylock -f
 
-bindsym $mod+Shift+i exec $term --title impala_tui -e impala
+bindsym $mod+Shift+w exec $term --title wifi_tui -e nmtui
 bindsym $mod+Shift+b exec $term --title bluetui_tui -e bluetui
 
-for_window [title="impala_tui"] floating enable, resize set 900 600, move position center
+for_window [title="wifi_tui"] floating enable, resize set 900 600, move position center
 for_window [title="bluetui_tui"] floating enable, resize set 900 600, move position center
 
 bindsym Print exec sh -c 'killall -q slurp grim; grim -g "$(slurp)" - | wl-copy'
