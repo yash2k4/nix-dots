@@ -1,5 +1,5 @@
 {
-  description = "yashy@NixOS-acerNitro";
+  description = "Niri on NixOS";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -8,46 +8,43 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
+    };
+
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
-  let
-    system = "x86_64-linux";
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
 
-    btop-nvidia-overlay = final: prev: {
-      btop = prev.btop.overrideAttrs (old: {
-        nativeBuildInputs =
-          (old.nativeBuildInputs or []) ++ [ final.makeWrapper ];
+      specialArgs = { inherit inputs; };
 
-        postFixup = (old.postFixup or "") + ''
-          wrapProgram $out/bin/btop \
-            --prefix LD_LIBRARY_PATH : /run/opengl-driver/lib
-        '';
-      });
-    };
-  in
-  {
-    nixosConfigurations = {
-      acerNitro = nixpkgs.lib.nixosSystem {
-        inherit system;
+      modules = [
+        ./configuration.nix
 
-        modules = [
-          ({ ... }: {
-            nixpkgs.overlays = [ btop-nvidia-overlay ];
-          })
+        home-manager.nixosModules.home-manager
 
-          ./hosts/acerNitro/configuration.nix
-          home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
 
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.yashy = import ./home/home.nix;
-            };
-          }
-        ];
-      };
+            users.yash2k4 = import ./home.nix;
+
+            backupFileExtension = "backup";
+
+            extraSpecialArgs = { inherit inputs; };
+          };
+        }
+      ];
     };
   };
 }
