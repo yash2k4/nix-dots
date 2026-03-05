@@ -49,8 +49,7 @@ exec_always swaybg -i ~/Pictures/walls/arch-rainbow.png -m fill
 exec dunst -config ~/.config/dunst/dunstrc
 exec_always autotiling
 exec ~/.config/sway/battery-warning
-exec_always sh -c 'killall -q waybar; waybar &'
-
+exec_always pkill waybar; waybar
 exec_always --no-startup-id sh -c 'pkill -x swayidle; swayidle -w timeout 300 "swaylock -f" before-sleep "swaylock -f"'
 
 input * {
@@ -75,7 +74,7 @@ bindsym $mod+n exec $fm
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+Escape exec swaylock -f
 
-bindsym $mod+Shift+w exec $term --title wifi_tui -e nmtui
+bindsym $mod+Shift+i exec $term --title wifi_tui -e nmtui
 bindsym $mod+Shift+b exec $term --title bluetui_tui -e bluetui
 
 for_window [title="wifi_tui"] floating enable, resize set 900 600, move position center
