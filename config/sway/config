@@ -49,7 +49,7 @@ exec_always swaybg -i ~/Pictures/walls/arch-rainbow.png -m fill
 exec dunst -config ~/.config/dunst/dunstrc
 exec_always autotiling
 exec ~/.config/sway/battery-warning
-exec_always pkill waybar; waybar
+exec_always --no-startup-id sh -c 'pkill waybar; waybar'
 exec_always --no-startup-id sh -c 'pkill -x swayidle; swayidle -w timeout 300 "swaylock -f" before-sleep "swaylock -f"'
 
 input * {
