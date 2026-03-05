@@ -45,7 +45,7 @@ floating_modifier $mod
 
 exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always swaybg -i ~/Pictures/walls/arch-rainbow.png -m fill
+exec_always swaybg -i ~/Pictures/walls/nixppuccin.jpg -m fill
 exec dunst -config ~/.config/dunst/dunstrc
 exec_always autotiling
 exec ~/.config/sway/battery-warning
