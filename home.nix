@@ -105,6 +105,7 @@ setopt HIST_REDUCE_BLANKS
 setopt EXTENDED_HISTORY
 setopt HIST_SAVE_NO_DUPS
 
+alias nixro='sudo nixos-rebuild switch --flakes ~/nix-dots#nixro'
 alias vim='nvim'
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -la --icons --group-directories-first --git'
