@@ -105,7 +105,12 @@ setopt HIST_REDUCE_BLANKS
 setopt EXTENDED_HISTORY
 setopt HIST_SAVE_NO_DUPS
 
-alias nixro='sudo nixos-rebuild switch --flakes ~/nix-dots#nixro'
+alias nixro='sudo nixos-rebuild switch --flake ~/nix-dots#nixro --accept-flake-config'
+alias nixrt='sudo nixos-rebuild test --flake ~/nix-dots#nixro --accept-flake-config'
+alias nixrb='sudo nixos-rebuild build --flake ~/nix-dots#nixro --accept-flake-config'
+alias nixup='cd ~/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#nixro --accept-flake-config'
+alias nixgc='sudo nix-collect-garbage -d'
+
 alias vim='nvim'
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -la --icons --group-directories-first --git'

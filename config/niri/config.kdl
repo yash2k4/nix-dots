@@ -21,8 +21,8 @@ input {
 }
 
 layout {
-    gaps 5
-    center-focused-column "never"
+    gaps 0
+    center-focused-column "always"
 
     preset-column-widths {
         proportion 0.33333
@@ -47,10 +47,7 @@ layout {
     }
 
     shadow {
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#00000070"
+        off
     }
 
     struts { }
@@ -65,6 +62,11 @@ animations {
     workspace-switch {
         off
     }
+}
+
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
 }
 
 window-rule {
@@ -185,7 +187,8 @@ binds {
 
     Mod+W { toggle-column-tabbed-display; }
 
-    Print { spawn "flameshot" "gui"; }
+    Print { spawn-sh "killall -q slurp grim; grim -g \"$(slurp)\" - | wl-copy"; }
+    Shift+Print { spawn-sh "killall -q slurp grim; mkdir -p \"$HOME/Pictures/Screenshots\"; grim -g \"$(slurp)\" \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png\""; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
