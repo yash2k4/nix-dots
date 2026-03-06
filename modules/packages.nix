@@ -42,7 +42,9 @@
     localsend
     lsd
     man-db
+    man-pages
     maven
+    microfetch
     nemo
     nerdfetch
     neovim
