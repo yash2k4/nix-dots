@@ -28,7 +28,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
 
-            users.yash2k4 = import ./home.nix;
+            users.yash2k4 = import ./home/home.nix;
           };
         }
       ];
