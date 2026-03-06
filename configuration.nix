@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/packages.nix
-    ./modules/nvidia.nix
+    ./modules/swaydia.nix
     ./modules/services.nix
     ./modules/users.nix
   ];
