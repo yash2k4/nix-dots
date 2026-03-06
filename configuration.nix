@@ -6,6 +6,7 @@
     ./modules/packages.nix
     ./modules/nvidia.nix
     ./modules/services.nix
+    ./modules/users.nix
   ];
 
   boot.loader = {
@@ -82,20 +83,6 @@
   system.stateVersion = "25.11";
 
   time.timeZone = "Asia/Kolkata";
-
-  users.users.yash2k4 = {
-    description = "yash2k4";
-
-    isNormalUser = true;
-
-    shell = pkgs.zsh;
-
-    extraGroups = [
-      "docker"
-      "networkmanager"
-      "wheel"
-    ];
-  };
 
   xdg.portal = {
     enable = true;
