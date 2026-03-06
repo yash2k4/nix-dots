@@ -5,6 +5,7 @@
     ani-cli
     asciiquarium
     astroterm
+    autotiling
     bat
     bibata-cursors
     bluetui

@@ -1,19 +1,24 @@
 { config, pkgs, ... }:
 
+let
+  aliases = import ./aliases.nix;
+in
 {
   programs.zsh = {
     enable = true;
 
+    shellAliases = aliases;
+
     initContent = ''
 if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+  source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
 fi
 
 ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
-mkdir -p "''${ZINIT_HOME:h}"
-git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  mkdir -p "''${ZINIT_HOME:h}"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 source "''${ZINIT_HOME}/zinit.zsh"
@@ -60,17 +65,6 @@ setopt HIST_REDUCE_BLANKS
 setopt EXTENDED_HISTORY
 setopt HIST_SAVE_NO_DUPS
 
-alias nixro='sudo nixos-rebuild switch --flake ~/nix-dots#nixro --accept-flake-config'
-alias nixrt='sudo nixos-rebuild test --flake ~/nix-dots#nixro --accept-flake-config'
-alias nixrb='sudo nixos-rebuild build --flake ~/nix-dots#nixro --accept-flake-config'
-alias nixup='cd ~/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#nixro --accept-flake-config'
-alias nixgc='sudo nix-collect-garbage -d'
-
-alias vim='nvim'
-alias ls='eza --icons --group-directories-first'
-alias ll='eza -la --icons --group-directories-first --git'
-alias tree='eza --tree --icons'
-
 zinit ice wait"0" lucid atload'eval "$(fzf --zsh)"'
 zinit light junegunn/fzf
 
@@ -79,9 +73,9 @@ zinit light ajeetdsouza/zoxide
 
 typeset -U path
 path=(
-"$HOME/.cargo/bin"
-"$HOME/.config/scripts"
-$path
+  "$HOME/.cargo/bin"
+  "$HOME/.config/scripts"
+  $path
 )
 
 export EDITOR=nvim
