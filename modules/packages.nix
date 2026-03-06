@@ -17,6 +17,7 @@
     cointop
     cowsay
     docker-compose
+    dunst
     dysk
     eza
     fastfetch
