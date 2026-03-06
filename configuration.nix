@@ -3,125 +3,14 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/packages.nix
+    ./modules/nvidia.nix
+    ./modules/services.nix
   ];
 
-  boot = {
-    initrd.kernelModules = [
-      "nvidia"
-      "nvidia_drm"
-      "nvidia_modeset"
-      "nvidia_uvm"
-    ];
-
-    kernelPackages = pkgs.linuxPackages_latest;
-
-    kernelParams = [
-      "nvidia-drm.modeset=1"
-    ];
-
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
-    };
-  };
-
-  environment = {
-    sessionVariables = {
-      GBM_BACKEND = "nvidia-drm";
-      LIBVA_DRIVER_NAME = "nvidia";
-      NIXOS_OZONE_WL = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    };
-
-    systemPackages = with pkgs; [
-      ani-cli
-      asciiquarium
-      astroterm
-      bat
-      bibata-cursors
-      bluetui
-      brightnessctl
-      btop
-      catppuccin-gtk
-      cava
-      cbonsai
-      cointop
-      cowsay
-      docker-compose
-      dysk
-      eza
-      fastfetch
-      figlet
-      foot
-      fortune
-      fuzzel
-      fzf
-      gh
-      glab
-      go
-      gradle
-      grim
-      impala
-      jdk21_headless
-      jetbrains.idea
-      kotlin
-      lazydocker
-      lazygit
-      libqalculate
-      localsend
-      lsd
-      man-db
-      maven
-      nemo
-      nerdfetch
-      neovim
-      nitch
-      nodejs
-      nwg-look
-      obsidian
-      papirus-icon-theme
-      pastel
-      pfetch-rs
-      pipes
-      postman
-      rofi
-      ruby
-      sl
-      slurp
-      speedtest-cli
-      spicetify-cli
-      spotify
-      starship
-      swaybg
-      swayidle
-      swaylock-effects
-      tealdeer
-      trash-cli
-      tree
-      tty-clock
-      tuigreet
-      unimatrix
-      unzip
-      uwufetch
-      vesktop
-      vscode
-      waybar
-      wget
-      wl-clipboard
-      xdg-desktop-portal
-      yazi
-      zathura
-      zoxide
-      zig
-      zip
-      (pkgs.makeDesktopItem {
-        name = "sway-nvidia";
-        desktopName = "Sway (NVIDIA)";
-        exec = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
-        type = "Application";
-      })
-    ];
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
   };
 
   fonts.packages = with pkgs; [
@@ -131,38 +20,7 @@
     noto-fonts-color-emoji
   ];
 
-  hardware = {
-    bluetooth.enable = true;
-
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaPersistenced = true;
-      nvidiaSettings = true;
-      open = true;
-
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-      powerManagement = {
-        enable = true;
-        finegrained = true;
-      };
-
-      prime = {
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-      };
-    };
-  };
+  hardware.bluetooth.enable = true;
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -181,6 +39,10 @@
   };
 
   networking = {
+    hostName = "nixro";
+
+    networkmanager.enable = true;
+
     firewall = {
       enable = true;
 
@@ -196,9 +58,6 @@
         5353
       ];
     };
-
-    hostName = "nixro";
-    networkmanager.enable = true;
   };
 
   nix.settings.experimental-features = [
@@ -207,8 +66,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  powerManagement.powertop.enable = true;
 
   programs = {
     firefox.enable = true;
@@ -222,48 +79,23 @@
     zsh.enable = true;
   };
 
-  services = {
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time";
-          user = "greeter";
-        };
-      };
-    };
-
-    openssh.enable = true;
-    power-profiles-daemon.enable = true;
-    thermald.enable = true;
-    upower.enable = true;
-  };
-
-  services.xserver = {
-    videoDrivers = [ "nvidia" ];
-
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
-
   system.stateVersion = "25.11";
 
   time.timeZone = "Asia/Kolkata";
 
   users.users.yash2k4 = {
     description = "yash2k4";
+
+    isNormalUser = true;
+
+    shell = pkgs.zsh;
+
     extraGroups = [
       "docker"
       "networkmanager"
       "wheel"
     ];
-    isNormalUser = true;
-    shell = pkgs.zsh;
   };
-
-  virtualisation.docker.enable = true;
 
   xdg.portal = {
     enable = true;
