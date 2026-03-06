@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CRIT_ID=9999
 notified=false
@@ -8,7 +8,7 @@ while true; do
     status=$(acpi -b | grep -oE 'Charging|Discharging|Full')
 
     if [ "$status" = "Discharging" ]; then
-        if [ "$battery" -le 5 ] && [ "$notified" = false ]; then
+        if [ "$battery" -le 70 ] && [ "$notified" = false ]; then
             dunstify -u critical -r $CRIT_ID \
             "󰂃 Critical Battery — ${battery}%" \
             "Charge immediately to prevent shutdown."
