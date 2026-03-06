@@ -37,6 +37,7 @@
     kotlin
     lazydocker
     lazygit
+    libnotify
     libqalculate
     localsend
     lsd
