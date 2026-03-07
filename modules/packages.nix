@@ -8,11 +8,9 @@
     astroterm
     autotiling
     bat
-    bibata-cursors
     bluetui
     brightnessctl
     btop
-    catppuccin-gtk
     cava
     cbonsai
     cointop
@@ -58,7 +56,6 @@
     pfetch-rs
     pipes
     postman
-    rofi
     ruby
     sl
     slurp

@@ -8,9 +8,10 @@
     };
 
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
     nixosConfigurations.nixro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -18,6 +19,8 @@
 
       modules = [
         ./configuration.nix
+
+        stylix.nixosModules.stylix
 
         home-manager.nixosModules.home-manager
 

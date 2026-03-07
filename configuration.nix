@@ -7,6 +7,7 @@
     ./modules/swaydia.nix
     ./modules/services.nix
     ./modules/users.nix
+    ./modules/stylix.nix
   ];
 
   boot.loader = {
