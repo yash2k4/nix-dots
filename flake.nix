@@ -2,16 +2,22 @@
   description = "SwayFX on NixOS";
 
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "nixpkgs/nixos-unstable";
     stylix.url = "github:danth/stylix";
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, ... }@inputs: {
     nixosConfigurations.nixro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -31,7 +37,12 @@
             useGlobalPkgs = true;
             useUserPackages = true;
 
-            users.yash2k4 = import ./home/home.nix;
+            users.yash2k4 = {
+              imports = [
+                ./home/home.nix
+                spicetify-nix.homeManagerModules.default
+              ];
+            };
           };
         }
       ];

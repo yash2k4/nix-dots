@@ -1,27 +1,16 @@
-{ config, pkgs, inputs, ... }:
-
+{ config, pkgs, inputs, lib, ... }:
 {
   imports = [
-    ./programs/git.nix
-    ./programs/bash.nix
-    ./programs/zsh.nix
     ./config-files.nix
+    ./programs/bash.nix
+    ./programs/git.nix
+    ./programs/nix-search.nix
+    ./programs/spicetify.nix
+    ./programs/zsh.nix
   ];
-
   home = {
     username = "yash2k4";
     homeDirectory = "/home/yash2k4";
     stateVersion = "25.11";
-
-    packages = [
-      (pkgs.writeShellApplication {
-        name = "ns";
-        runtimeInputs = with pkgs; [
-          fzf
-          nix-search-tv
-        ];
-        text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
-      })
-    ];
   };
 }

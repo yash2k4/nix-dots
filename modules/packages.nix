@@ -63,7 +63,6 @@
     slurp
     speedtest-cli
     spicetify-cli
-    spotify
     starship
     swaybg
     swayidle
