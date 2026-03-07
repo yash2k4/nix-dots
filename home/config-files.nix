@@ -3,7 +3,7 @@
 let
   dotfiles = ../config;
 
-  create_symlink = config.lib.file.mkOutOfStoreSymlink;
+  link = config.lib.file.mkOutOfStoreSymlink;
 
   configs = [
     "alacritty"
@@ -38,14 +38,12 @@ let
 
 in
 {
-  home.file =
-    builtins.listToAttrs (
-      map (name: {
-        name = ".config/${name}";
-        value = {
-          source = create_symlink "${dotfiles}/${name}";
-          recursive = true;
-        };
-      }) configs
-    );
+  home.file = builtins.listToAttrs (
+    map (name: {
+      name = ".config/${name}";
+      value = {
+        source = link "${dotfiles}/${name}";
+      };
+    }) configs
+  );
 }
