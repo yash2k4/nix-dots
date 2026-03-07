@@ -12,6 +12,7 @@
     brightnessctl
     btop
     cava
+    cargo-seek
     cbonsai
     cointop
     cowsay
@@ -31,7 +32,7 @@
     gradle
     grim
     impala
-    jdk21_headless
+    jdk21
     jetbrains.idea
     kotlin
     lazydocker
@@ -57,6 +58,7 @@
     pipes
     postman
     ruby
+    rustup
     sl
     slurp
     speedtest-cli
