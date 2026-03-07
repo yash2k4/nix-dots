@@ -8,7 +8,6 @@
     ./modules/services.nix
     ./modules/users.nix
     ./modules/stylix.nix
-    ./modules/nix-gc.nix
   ];
 
   boot.loader = {
