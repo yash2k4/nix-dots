@@ -1,14 +1,11 @@
 { pkgs, ... }:
-
 {
   environment.systemPackages = with pkgs; [
     acpi
     ani-cli
     asciiquarium
     astroterm
-    autotiling
     bat
-    bluetui
     brightnessctl
     btop
     cava
@@ -17,21 +14,20 @@
     cointop
     cowsay
     docker-compose
-    dunst
     dysk
     eza
     fastfetch
     figlet
-    foot
+    flameshot
     fortune
     fuzzel
     fzf
+    gcc
     gh
+    ghostty
     glab
     go
     gradle
-    grim
-    impala
     jdk21
     jetbrains.idea
     kotlin
@@ -49,6 +45,7 @@
     nerdfetch
     neovim
     nitch
+    noctalia-shell
     nodejs
     nwg-look
     obsidian
@@ -61,13 +58,10 @@
     ruby
     rustup
     sl
-    slurp
     speedtest-cli
-    swaybg
     swayidle
     swaylock-effects
     tealdeer
-    trash-cli
     tree
     tty-clock
     tuigreet
@@ -75,21 +69,13 @@
     unzip
     uwufetch
     vscode
-    waybar
     wget
     wl-clipboard
-    xdg-desktop-portal
+    xwayland-satellite
     yazi
     zathura
     zoxide
     zig
     zip
-
-    (pkgs.makeDesktopItem {
-      name = "sway-nvidia";
-      desktopName = "Sway (NVIDIA)";
-      exec = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
-      type = "Application";
-    })
   ];
 }
