@@ -63,8 +63,6 @@
     sl
     slurp
     speedtest-cli
-    spicetify-cli
-    starship
     swaybg
     swayidle
     swaylock-effects
@@ -76,7 +74,6 @@
     unimatrix
     unzip
     uwufetch
-    vesktop
     vscode
     waybar
     wget

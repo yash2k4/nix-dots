@@ -1,6 +1,6 @@
-{ ... }:
 {
   stylix.targets.vesktop.enable = false;
+  programs.vesktop.enable = true;
 
   xdg.configFile."vesktop/settings.json" = {
     text = builtins.toJSON {
