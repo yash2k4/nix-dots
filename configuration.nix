@@ -18,7 +18,6 @@
     noto-fonts-color-emoji
   ];
   hardware.bluetooth.enable = true;
-  services.upower.enable = true;
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
