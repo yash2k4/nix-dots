@@ -6,19 +6,11 @@ let
   link = config.lib.file.mkOutOfStoreSymlink;
 
   configs = [
-    "alacritty"
-    "doom"
     "dunst"
     "fastfetch"
     "foot"
     "fuzzel"
-    "hypr"
-    "i3"
-    "kitty"
     "nvim"
-    "picom"
-    "polybar"
-    "rofi"
     "scripts"
     "sway"
     "swaylock"
