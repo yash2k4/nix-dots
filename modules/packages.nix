@@ -45,7 +45,6 @@
     nerdfetch
     neovim
     nitch
-    noctalia-shell
     nodejs
     nwg-look
     obsidian

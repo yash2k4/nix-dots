@@ -2,7 +2,6 @@
 {
   stylix = {
     enable = true;
-    image = ../nixppuccin.jpg;
     base16Scheme = {
       base00 = "1e1e2e";
       base01 = "181825";

@@ -5,6 +5,7 @@
     ./programs/bash.nix
     ./programs/git.nix
     ./programs/nix-search.nix
+    ./programs/noctalia.nix
     ./programs/spicetify.nix
     ./programs/vesktop.nix
     ./programs/zsh.nix

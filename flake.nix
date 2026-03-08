@@ -1,5 +1,5 @@
 {
-  description = "SwayFX on NixOS";
+  description = "Niri on NixOS";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -31,27 +31,22 @@
   outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, noctalia, noctalia-qs, ... }@inputs: {
     nixosConfigurations.nixro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-
       specialArgs = { inherit inputs; };
-
       modules = [
         ./configuration.nix
-
         stylix.nixosModules.stylix
-
         home-manager.nixosModules.home-manager
-
         {
           home-manager = {
             backupFileExtension = "backup";
             extraSpecialArgs = { inherit inputs; };
             useGlobalPkgs = true;
             useUserPackages = true;
-
             users.yash2k4 = {
               imports = [
                 ./home/home.nix
                 spicetify-nix.homeManagerModules.default
+                inputs.noctalia.homeModules.default
               ];
             };
           };
