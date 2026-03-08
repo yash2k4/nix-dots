@@ -1,0 +1,124 @@
+* {
+    rosewater: #f5e0dc;
+    flamingo: #f2cdcd;
+    pink: #f5c2e7;
+    mauve: #cba6f7;
+    red: #f38ba8;
+    maroon: #eba0ac;
+    peach: #fab387;
+    yellow: #f9e2af;
+    green: #a6e3a1;
+    teal: #94e2d5;
+    sky: #89dceb;
+    sapphire: #74c7ec;
+    blue: #89b4fa;
+    lavender: #b4befe;
+    text: #cdd6f4;
+    subtext1: #bac2de;
+    subtext0: #a6adc8;
+    overlay2: #9399b2;
+    overlay1: #7f849c;
+    overlay0: #6c7086;
+    surface2: #585b70;
+    surface1: #45475a;
+    surface0: #313244;
+    base: #1e1e2e;
+    mantle: #181825;
+    crust: #11111b;
+
+    basecc: #1e1e2ecc;
+
+    font: "JetBrainsMono Nerd Font Propo 15";
+    g-spacing: 10px;
+    g-margin: 0;
+    b-radius: 10px;
+    g-padding: 8px;
+    wbg-color: @basecc;
+    w-border: 2px solid;
+    w-border-color: @mauve;
+    w-padding: 14px;
+}
+
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "";
+    drun-display-format: "{name}";
+}
+
+listview {
+    columns: 1;
+    lines: 6;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+    spacing: 6px;
+}
+
+window {
+    transparency: "real";
+    width: 400px;
+    border-radius: @b-radius;
+    background-color: @wbg-color;
+    border: @w-border;
+    border-color: @w-border-color;
+    padding: @w-padding;
+}
+
+prompt {
+    text-color: @mauve;
+}
+
+inputbar {
+    children: ["prompt", "entry"];
+    spacing: @g-spacing;
+}
+
+entry {
+    placeholder: "Search Apps";
+    text-color: @text;
+    placeholder-color: @subtext0;
+}
+
+mainbox {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    children: ["inputbar", "listview", "message"];
+}
+
+element {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: 10px;
+    border-radius: @b-radius;
+    background-color: transparent;
+    text-color: @text;
+}
+
+element normal.normal,
+element normal.alternate,
+element alternate.normal,
+element alternate.alternate {
+    background-color: transparent;
+    text-color: @text;
+}
+
+element selected.normal,
+element selected.alternate,
+element selected.active {
+    background-color: @mauve;
+    text-color: @crust;
+}
+
+element-icon {
+    size: 22px;
+}
+
+message {
+    background-color: @red;
+    border-radius: @b-radius;
+    padding: 8px;
+}
