@@ -48,7 +48,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always swaybg -i ~/Pictures/walls/nixppuccin.jpg -m fill
 exec_always --no-startup-id dunst
 exec_always autotiling
-exec_always ~/.config/sway/battery-warning
+exec_always ~/.config/sway/battery-warning.sh
 exec_always --no-startup-id sh -c 'pkill waybar; waybar'
 exec_always --no-startup-id sh -c 'pkill -x swayidle; swayidle -w timeout 300 "swaylock -f" before-sleep "swaylock -f"'
 

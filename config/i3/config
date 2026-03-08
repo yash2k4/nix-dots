@@ -46,7 +46,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec --no-startup-id ~/.config/i3/battery-warning
+exec --no-startup-id ~/.config/i3/battery-warning.sh
 exec_always --no-startup-id autotiling -l 2
 
 bindsym $mod+Return exec alacritty
