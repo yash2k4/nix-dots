@@ -15,4 +15,31 @@
     };
     force = true;
   };
+
+  xdg.configFile."vesktop/settings/settings.json" = {
+    text = builtins.toJSON {
+      themeLinks = [
+        "https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css"
+      ];
+      plugins = {
+        AlwaysAnimate = { enabled = true; };
+        AlwaysTrust = { enabled = true; };
+        CallTimer = { enabled = true; };
+        ClearURLs = { enabled = true; };
+        CrashHandler = { enabled = true; };
+        Decor = { enabled = true; };
+        FakeNitro = { enabled = true; };
+        FakeProfileThemes = { enabled = true; };
+        GameActivityToggle = { enabled = true; };
+        OpenInApp = { enabled = true; };
+        ReadAllNotificationsButton = { enabled = true; };
+        ServerInfo = { enabled = true; };
+        ShowHiddenChannels = { enabled = true; };
+        ShowHiddenThings = { enabled = true; };
+        WebKeybinds = { enabled = true; };
+        WebScreenShareFixes = { enabled = true; };
+      };
+    };
+    force = true;
+  };
 }

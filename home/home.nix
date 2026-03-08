@@ -6,6 +6,7 @@
     ./programs/git.nix
     ./programs/nix-search.nix
     ./programs/spicetify.nix
+    ./programs/vesktop.nix
     ./programs/zsh.nix
   ];
   home = {
