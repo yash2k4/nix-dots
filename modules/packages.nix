@@ -54,6 +54,7 @@
     obsidian
     papirus-icon-theme
     pastel
+    pavucontrol
     pfetch-rs
     pipes
     postman
