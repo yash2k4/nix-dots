@@ -409,7 +409,7 @@
       };
 
       sessionMenu = {
-        countdownDuration = 10000;
+        countdownDuration = 5000;
         enableCountdown = true;
         largeButtonsLayout = "single-row";
         largeButtonsStyle = true;

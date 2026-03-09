@@ -1,5 +1,4 @@
 prefer-no-csd
-
 workspace "1"
 workspace "2"
 workspace "3"
@@ -10,7 +9,6 @@ workspace "7"
 workspace "8"
 workspace "9"
 workspace "10"
-
 input {
     keyboard {
         repeat-rate 50
@@ -26,9 +24,8 @@ input {
     trackpoint {}
     focus-follows-mouse max-scroll-amount="0%"
 }
-
 layout {
-    gaps 0
+    gaps 5
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -53,25 +50,20 @@ layout {
     }
     struts {}
 }
-
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 300 swaylock before-sleep swaylock"
-
 animations {
     workspace-switch { off; }
 }
-
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 8
     clip-to-geometry true
 }
-
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
-
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return { spawn "ghostty"; }
@@ -79,7 +71,6 @@ binds {
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }
     Mod+Alt+L { spawn "swaylock"; }
-
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -88,18 +79,14 @@ binds {
     XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
-
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-
     Print { spawn "flameshot" "gui"; }
-
     Mod+Q { close-window; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Shift+Space { toggle-window-floating; }
     Mod+O { toggle-overview; }
-
     Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
@@ -108,7 +95,6 @@ binds {
     Mod+Shift+J { move-window-down; }
     Mod+Shift+K { move-window-up; }
     Mod+Shift+L { move-column-right; }
-
     Mod+1 { focus-workspace "1"; }
     Mod+2 { focus-workspace "2"; }
     Mod+3 { focus-workspace "3"; }
@@ -119,7 +105,6 @@ binds {
     Mod+8 { focus-workspace "8"; }
     Mod+9 { focus-workspace "9"; }
     Mod+0 { focus-workspace "10"; }
-
     Mod+Shift+1 { move-column-to-workspace "1"; }
     Mod+Shift+2 { move-column-to-workspace "2"; }
     Mod+Shift+3 { move-column-to-workspace "3"; }
@@ -130,7 +115,6 @@ binds {
     Mod+Shift+8 { move-column-to-workspace "8"; }
     Mod+Shift+9 { move-column-to-workspace "9"; }
     Mod+Shift+0 { move-column-to-workspace "10"; }
-
     Mod+Shift+R { spawn "niri" "msg" "reload-config"; }
     Mod+Shift+M { quit; }
 }
