@@ -9,7 +9,6 @@ let
     "alacritty"
     "doom"
     "dunst"
-    "fastfetch"
     "foot"
     "fuzzel"
     "ghostty"
