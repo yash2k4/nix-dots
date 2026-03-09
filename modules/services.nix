@@ -1,5 +1,21 @@
 { pkgs, ... }:
 {
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        22
+        80
+        443
+        53317
+      ];
+      allowedUDPPorts = [
+        53317
+        5353
+      ];
+    };
+  };
+
   services = {
     greetd = {
       enable = true;
@@ -12,7 +28,7 @@
     };
 
     openssh.enable = true;
-   
+
     power-profiles-daemon.enable = false;
 
     tlp = {
@@ -40,9 +56,7 @@
     thermald.enable = true;
 
     upower.enable = true;
-
   };
 
   virtualisation.docker.enable = true;
-
 }

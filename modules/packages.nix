@@ -24,12 +24,12 @@
     fzf
     gcc
     gh
+    ghostty
     glab
     go
     gradle
     jdk21
     jetbrains.idea
-    kitty
     kotlin
     lazydocker
     lazygit
