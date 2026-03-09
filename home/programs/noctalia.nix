@@ -4,6 +4,7 @@
     enable = true;
 
     settings = lib.mkForce {
+
       appLauncher = {
         autoPasteClipboard = false;
         clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
@@ -86,7 +87,12 @@
             }
           ];
           left = [
-            { icon = "rocket"; iconColor = "none"; id = "Launcher"; }
+            {
+              iconColor = "none";
+              id = "Launcher";
+              useDistroLogo = true;
+              colorizeIcons = false;
+            }
             {
               clockColor = "none";
               customFont = "";
@@ -119,19 +125,76 @@
             }
           ];
           right = [
-            { blacklist = []; chevronColor = "none"; colorizeIcons = false; drawerEnabled = true; hidePassive = false; id = "Tray"; pinned = []; }
-            { hideWhenZero = false; hideWhenZeroUnread = false; iconColor = "none"; id = "NotificationHistory"; showUnreadBadge = true; unreadBadgeColor = "primary"; }
-            { deviceNativePath = "__default__"; displayMode = "graphic"; hideIfIdle = false; hideIfNotDetected = true; id = "Battery"; showNoctaliaPerformance = true; showPowerProfiles = true; }
-            { displayMode = "alwaysShow"; iconColor = "none"; id = "Volume"; middleClickCommand = "pwvucontrol || pavucontrol"; textColor = "none"; }
-            { applyToAllMonitors = false; displayMode = "alwaysShow"; iconColor = "none"; id = "Brightness"; textColor = "none"; }
-            { colorizeDistroLogo = false; colorizeSystemIcon = "none"; customIconPath = ""; enableColorization = false; icon = "noctalia"; id = "ControlCenter"; useDistroLogo = false; }
-            { displayMode = "onhover"; iconColor = "none"; id = "Bluetooth"; textColor = "none"; }
-            { displayMode = "onhover"; iconColor = "none"; id = "Network"; textColor = "none"; }
+            {
+              blacklist = [];
+              chevronColor = "none";
+              colorizeIcons = false;
+              drawerEnabled = true;
+              hidePassive = false;
+              id = "Tray";
+              pinned = [];
+            }
+            {
+              hideWhenZero = false;
+              hideWhenZeroUnread = false;
+              iconColor = "none";
+              id = "NotificationHistory";
+              showUnreadBadge = true;
+              unreadBadgeColor = "primary";
+            }
+            {
+              deviceNativePath = "__default__";
+              displayMode = "graphic";
+              hideIfIdle = false;
+              hideIfNotDetected = true;
+              id = "Battery";
+              showNoctaliaPerformance = true;
+              showPowerProfiles = true;
+            }
+            {
+              displayMode = "alwaysShow";
+              iconColor = "none";
+              id = "Volume";
+              middleClickCommand = "pwvucontrol || pavucontrol";
+              textColor = "none";
+            }
+            {
+              applyToAllMonitors = false;
+              displayMode = "alwaysShow";
+              iconColor = "none";
+              id = "Brightness";
+              textColor = "none";
+            }
+            {
+              colorizeDistroLogo = false;
+              colorizeSystemIcon = "none";
+              customIconPath = "";
+              enableColorization = false;
+              icon = "noctalia";
+              id = "ControlCenter";
+              useDistroLogo = false;
+            }
+            {
+              displayMode = "onhover";
+              iconColor = "none";
+              id = "Bluetooth";
+              textColor = "none";
+            }
+            {
+              displayMode = "onhover";
+              iconColor = "none";
+              id = "Network";
+              textColor = "none";
+            }
           ];
         };
       };
 
-      brightness = { brightnessStep = 5; enableDdcSupport = false; enforceMinimum = true; };
+      brightness = {
+        brightnessStep = 5;
+        enableDdcSupport = false;
+        enforceMinimum = true;
+      };
 
       calendar = {
         cards = [
@@ -164,12 +227,26 @@
         diskPath = "/";
         position = "close_to_bar_button";
         shortcuts = {
-          left = [ { id = "Network"; } { id = "Bluetooth"; } { id = "WallpaperSelector"; } { id = "NoctaliaPerformance"; } ];
-          right = [ { id = "Notifications"; } { id = "PowerProfile"; } { id = "KeepAwake"; } { id = "NightLight"; } ];
+          left = [
+            { id = "Network"; }
+            { id = "Bluetooth"; }
+            { id = "WallpaperSelector"; }
+            { id = "NoctaliaPerformance"; }
+          ];
+          right = [
+            { id = "Notifications"; }
+            { id = "PowerProfile"; }
+            { id = "KeepAwake"; }
+            { id = "NightLight"; }
+          ];
         };
       };
 
-      desktopWidgets = { enabled = false; gridSnap = false; monitorWidgets = []; };
+      desktopWidgets = {
+        enabled = false;
+        gridSnap = false;
+        monitorWidgets = [];
+      };
 
       dock = {
         animationSpeed = 1;
@@ -237,7 +314,17 @@
         telemetryEnabled = false;
       };
 
-      hooks = { darkModeChange = ""; enabled = false; performanceModeDisabled = ""; performanceModeEnabled = ""; screenLock = ""; screenUnlock = ""; session = ""; startup = ""; wallpaperChange = ""; };
+      hooks = {
+        darkModeChange = "";
+        enabled = false;
+        performanceModeDisabled = "";
+        performanceModeEnabled = "";
+        screenLock = "";
+        screenUnlock = "";
+        session = "";
+        startup = "";
+        wallpaperChange = "";
+      };
 
       location = {
         analogClockInCalendar = false;
@@ -265,7 +352,15 @@
         wifiEnabled = true;
       };
 
-      nightLight = { autoSchedule = true; dayTemp = "6500"; enabled = false; forced = false; manualSunrise = "06:30"; manualSunset = "18:30"; nightTemp = "4000"; };
+      nightLight = {
+        autoSchedule = true;
+        dayTemp = "6500";
+        enabled = false;
+        forced = false;
+        manualSunrise = "06:30";
+        manualSunset = "18:30";
+        nightTemp = "4000";
+      };
 
       notifications = {
         backgroundOpacity = 1;
@@ -283,13 +378,35 @@
         normalUrgencyDuration = 8;
         overlayLayer = true;
         respectExpireTimeout = false;
-        saveToHistory = { critical = true; low = true; normal = true; };
-        sounds = { criticalSoundFile = ""; enabled = false; excludedApps = "discord,firefox,chrome,chromium,edge"; lowSoundFile = ""; normalSoundFile = ""; separateSounds = false; volume = 0.5; };
+        saveToHistory = {
+          critical = true;
+          low = true;
+          normal = true;
+        };
+        sounds = {
+          criticalSoundFile = "";
+          enabled = false;
+          excludedApps = "discord,firefox,chrome,chromium,edge";
+          lowSoundFile = "";
+          normalSoundFile = "";
+          separateSounds = false;
+          volume = 0.5;
+        };
       };
 
-      osd = { autoHideMs = 2000; backgroundOpacity = 1; enabled = true; enabledTypes = [ 0 1 2 ]; location = "top_right"; monitors = []; overlayLayer = true; };
+      osd = {
+        autoHideMs = 2000;
+        backgroundOpacity = 1;
+        enabled = true;
+        enabledTypes = [ 0 1 2 ];
+        location = "top_right";
+        monitors = [];
+        overlayLayer = true;
+      };
 
-      plugins = { autoUpdate = false; };
+      plugins = {
+        autoUpdate = false;
+      };
 
       sessionMenu = {
         countdownDuration = 10000;
@@ -336,7 +453,10 @@
         warningColor = "";
       };
 
-      templates = { activeTemplates = []; enableUserTheming = false; };
+      templates = {
+        activeTemplates = [];
+        enableUserTheming = false;
+      };
 
       ui = {
         bluetoothDetailsViewMode = "grid";
@@ -392,6 +512,7 @@
         wallhavenSorting = "relevance";
         wallpaperChangeMode = "alphabetical";
       };
+
     };
 
     colors = lib.mkForce {
@@ -420,5 +541,6 @@
       states = {};
       version = 2;
     };
+
   };
 }
