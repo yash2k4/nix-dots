@@ -3,6 +3,11 @@ font pango:JetBrainsMono Nerd Font Bold 14
 floating_modifier $mod
 for_window [class="^.*"] border pixel 1
 
+set $terminal    alacritty
+set $browser     firefox
+set $filemanager nemo
+set $launcher    rofi
+
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd
 set $pink      #f5c2e7
@@ -49,12 +54,12 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id ~/.config/i3/battery-warning.sh
 exec_always --no-startup-id autotiling -l 2
 
-bindsym $mod+Return exec alacritty
-bindsym $mod+space exec --no-startup-id rofi -show drun
-bindsym $mod+e exec --no-startup-id nemo
-bindsym $mod+b exec --no-startup-id firefox
-bindsym $mod+Shift+i exec --no-startup-id alacritty --class impala_tui -e impala
-bindsym $mod+Shift+b exec --no-startup-id alacritty --class bluetui_tui -e bluetui
+bindsym $mod+Return exec $terminal
+bindsym $mod+space exec --no-startup-id $launcher -show drun
+bindsym $mod+e exec --no-startup-id $filemanager
+bindsym $mod+b exec --no-startup-id $browser
+bindsym $mod+Shift+i exec --no-startup-id $terminal --class impala_tui -e impala
+bindsym $mod+Shift+b exec --no-startup-id $terminal --class bluetui_tui -e bluetui
 
 bindsym Print exec --no-startup-id maim -u --select | xclip -selection clipboard -t image/png
 bindsym Shift+Print exec --no-startup-id sh -c 'mkdir -p "$HOME/Pictures/Screenshots" && maim -u --select "$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"'
@@ -95,7 +100,6 @@ bindsym $mod+w layout tabbed
 for_window [class="impala_tui"] floating enable
 for_window [class="bluetui_tui"] floating enable
 
-# ALT + SHIFT resize (LDUR mapping)
 bindsym Mod1+Shift+h resize shrink width 10 px or 10 ppt
 bindsym Mod1+Shift+j resize grow height 10 px or 10 ppt
 bindsym Mod1+Shift+k resize shrink height 10 px or 10 ppt
