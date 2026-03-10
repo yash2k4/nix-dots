@@ -96,10 +96,10 @@
             {
               clockColor = "none";
               customFont = "";
-              formatHorizontal = "HH:mm ddd, MMM dd";
-              formatVertical = "HH mm - dd MM";
+              formatHorizontal = "HH:mm:ss ddd, MMM dd";
+              formatVertical = "HH mm ss - dd MM";
               id = "Clock";
-              tooltipFormat = "HH:mm ddd, MMM dd";
+              tooltipFormat = "HH:mm:ss ddd, MMM dd";
               useCustomFont = false;
             }
             {
@@ -276,7 +276,7 @@
         autoStartAuth = false;
         avatarImage = "/home/yash2k4/.face";
         boxRadiusRatio = 1;
-        clockFormat = "hh\nmm";
+        clockFormat = "hh\nmm\nss";
         clockStyle = "custom";
         compactLockScreen = false;
         dimmerOpacity = 0.2;
