@@ -59,7 +59,6 @@
     sl
     speedtest-cli
     swayidle
-    swaylock-effects
     tealdeer
     tree
     tty-clock

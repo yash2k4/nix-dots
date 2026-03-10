@@ -52,7 +52,12 @@ layout {
 }
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
-spawn-at-startup "sh" "-c" "swayidle -w timeout 300 swaylock before-sleep swaylock"
+spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'noctalia-shell ipc call lockScreen lock' before-sleep 'noctalia-shell ipc call lockScreen lock'"
+switch-events {
+    lid-close {
+        spawn "sh" "-c" "noctalia-shell ipc call lockScreen lock && sleep 1 && systemctl suspend";
+    }
+}
 animations {
     workspace-switch { off; }
 }
@@ -70,7 +75,7 @@ binds {
     Mod+Space { spawn "fuzzel"; }
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }
-    Mod+Alt+L { spawn "swaylock"; }
+    Mod+Alt+L { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
