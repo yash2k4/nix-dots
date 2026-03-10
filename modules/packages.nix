@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    acpi
+    alacritty
     ani-cli
     asciiquarium
     astroterm
@@ -24,7 +24,6 @@
     fzf
     gcc
     gh
-    ghostty
     glab
     go
     gradle
