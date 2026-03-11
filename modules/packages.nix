@@ -40,11 +40,13 @@
     man-pages
     maven
     microfetch
+    mpv
     nemo
     nerdfetch
     neovim
     nitch
     nodejs
+    nsxiv
     nwg-look
     obsidian
     papirus-icon-theme
