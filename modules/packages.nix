@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    alacritty
     ani-cli
     asciiquarium
     astroterm
@@ -19,6 +18,7 @@
     fastfetch
     figlet
     flameshot
+    foot
     fortune
     fuzzel
     fzf
