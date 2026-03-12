@@ -297,7 +297,7 @@
         lockOnSuspend = true;
         lockScreenAnimations = false;
         lockScreenBlur = 0;
-        lockScreenCountdownDuration = 10000;
+        lockScreenCountdownDuration = 5000;
         lockScreenMonitors = [];
         lockScreenTint = 0;
         radiusRatio = 1;

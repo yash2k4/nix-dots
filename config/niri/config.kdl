@@ -1,5 +1,10 @@
 prefer-no-csd
 
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 32
+}
+
 workspace "1"
 workspace "2"
 workspace "3"
@@ -10,7 +15,6 @@ workspace "7"
 workspace "8"
 workspace "9"
 workspace "10"
-
 
 input {
     keyboard {
@@ -27,7 +31,6 @@ input {
     trackpoint {}
     focus-follows-mouse max-scroll-amount="0%"
 }
-
 
 layout {
     gaps 5
@@ -56,11 +59,9 @@ layout {
     struts {}
 }
 
-
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'noctalia-shell ipc call lockScreen lock' timeout 600 'niri msg action power-off-monitors' before-sleep 'noctalia-shell ipc call lockScreen lock'"
-
 
 switch-events {
     lid-close {
@@ -68,11 +69,9 @@ switch-events {
     }
 }
 
-
 animations {
     workspace-switch { off; }
 }
-
 
 window-rule {
     geometry-corner-radius 8
@@ -84,10 +83,9 @@ window-rule {
     default-column-width {}
 }
 
-
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+Return { spawn "alacritty"; }
+    Mod+Return { spawn "foot"; }
     Mod+Space { spawn "fuzzel"; }
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }

@@ -4,7 +4,7 @@ indicator-thickness=15
 indicator-radius=150
 image=~/Pictures/walls/bsod.png
 clock
-effect-blur=7x5
+effect-blur=4x2
 effect-vignette=0.5:0.5
 ring-color=cba6f7
 key-hl-color=a6e3a1
