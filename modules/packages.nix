@@ -19,6 +19,7 @@
     fastfetch
     figlet
     flameshot
+    foot
     fortune
     fuzzel
     fzf
