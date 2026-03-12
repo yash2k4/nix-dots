@@ -87,7 +87,7 @@ window-rule {
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+Return { spawn "foot"; }
+    Mod+Return { spawn "alacritty"; }
     Mod+Space { spawn "fuzzel"; }
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }
