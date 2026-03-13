@@ -1,12 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/packages.nix
     ./modules/nvidia.nix
     ./modules/services.nix
     ./modules/users.nix
     ./modules/stylix.nix
+    ./modules/wm/niri.nix
   ];
 
   boot.loader = {
@@ -51,18 +51,10 @@
 
   programs = {
     firefox.enable = true;
-    niri.enable = true;
     zsh.enable = true;
   };
 
   system.stateVersion = "25.11";
 
   time.timeZone = "Asia/Kolkata";
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
-    ];
-  };
 }

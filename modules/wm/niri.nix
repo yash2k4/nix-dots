@@ -1,5 +1,14 @@
 { pkgs, ... }:
 {
+  programs.niri.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     alacritty
     ani-cli
@@ -17,6 +26,7 @@
     dysk
     eza
     fastfetch
+    fd
     figlet
     flameshot
     foot
@@ -30,6 +40,7 @@
     gradle
     jdk21
     jetbrains.idea
+    kdePackages.kate
     kotlin
     lazydocker
     lazygit
@@ -56,6 +67,7 @@
     pfetch-rs
     pipes
     postman
+    ripgrep
     ruby
     rustup
     sl

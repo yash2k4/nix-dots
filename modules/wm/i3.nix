@@ -1,0 +1,86 @@
+{ pkgs, ... }:
+{
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    alacritty
+    ani-cli
+    asciiquarium
+    astroterm
+    bat
+    brightnessctl
+    btop
+    cava
+    cargo-seek
+    cbonsai
+    cointop
+    cowsay
+    docker-compose
+    dysk
+    eza
+    fastfetch
+    fd
+    figlet
+    fortune
+    fzf
+    gcc
+    gh
+    glab
+    go
+    gradle
+    jdk21
+    jetbrains.idea
+    kdePackages.kate
+    kotlin
+    lazydocker
+    lazygit
+    libnotify
+    libqalculate
+    localsend
+    lsd
+    maim
+    man-db
+    man-pages
+    maven
+    microfetch
+    mpv
+    nemo
+    nerdfetch
+    neovim
+    nitch
+    nodejs
+    nsxiv
+    nwg-look
+    obsidian
+    papirus-icon-theme
+    pastel
+    pavucontrol
+    pfetch-rs
+    pipes
+    polybar
+    postman
+    ripgrep
+    rofi
+    ruby
+    rustup
+    sl
+    speedtest-cli
+    tealdeer
+    tree
+    tty-clock
+    tuigreet
+    unimatrix
+    unzip
+    uwufetch
+    vscode
+    wget
+    yazi
+    zathura
+    zoxide
+    zig
+    zip
+  ];
+}
