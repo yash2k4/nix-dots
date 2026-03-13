@@ -16,6 +16,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    dunst
     foot
     fuzzel
     grim
