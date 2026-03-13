@@ -1,14 +1,14 @@
 { config, pkgs, inputs, lib, ... }:
 {
   imports = [
-    ./config-files.nix
-    ./programs/bash.nix
-    ./programs/git.nix
-    ./programs/nix-search.nix
-    ./programs/noctalia.nix
-    ./programs/spicetify.nix
-    ./programs/vesktop.nix
-    ./programs/zsh.nix
+    ./dotfiles.nix
+    ./apps/bash.nix
+    ./apps/git.nix
+    ./apps/nix-search.nix
+    ./apps/noctalia.nix
+    ./apps/spicetify.nix
+    ./apps/vesktop.nix
+    ./apps/zsh.nix
   ];
   home = {
     username = "yash2k4";
