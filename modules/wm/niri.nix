@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  imports = [ ../packages.nix ];
+
   programs.niri.enable = true;
 
   xdg.portal = {
@@ -10,84 +12,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-    alacritty
-    ani-cli
-    asciiquarium
-    astroterm
-    bat
-    brightnessctl
-    btop
-    cava
-    cargo-seek
-    cbonsai
-    cointop
-    cowsay
-    docker-compose
-    dysk
-    eza
-    fastfetch
-    fd
-    figlet
     flameshot
     foot
-    fortune
     fuzzel
-    fzf
-    gcc
-    gh
-    glab
-    go
-    gradle
-    jdk21
-    jetbrains.idea
-    kdePackages.kate
-    kotlin
-    lazydocker
-    lazygit
-    libnotify
-    libqalculate
-    localsend
-    lsd
-    man-db
-    man-pages
-    maven
-    microfetch
-    mpv
-    nemo
-    nerdfetch
-    neovim
-    nitch
-    nodejs
-    nsxiv
     nwg-look
-    obsidian
-    papirus-icon-theme
-    pastel
-    pavucontrol
-    pfetch-rs
-    pipes
-    postman
-    ripgrep
-    ruby
-    rustup
-    sl
-    speedtest-cli
     swayidle
-    tealdeer
-    tree
-    tty-clock
-    tuigreet
-    unimatrix
-    unzip
-    uwufetch
-    vscode
-    wget
     wl-clipboard
     xwayland-satellite
-    yazi
-    zathura
-    zoxide
-    zig
-    zip
   ];
 }

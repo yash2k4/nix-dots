@@ -2,11 +2,11 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/nvidia.nix
-    ./modules/services.nix
-    ./modules/users.nix
-    ./modules/stylix.nix
-    ./modules/wm/niri.nix
+    ../../modules/nvidia.nix
+    ../../modules/services.nix
+    ../../modules/users.nix
+    ../../modules/stylix.nix
+    ../../modules/wm/niri.nix
   ];
 
   boot.loader = {
