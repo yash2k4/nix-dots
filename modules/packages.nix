@@ -52,6 +52,8 @@
     pavucontrol
     pfetch-rs
     pipes
+    python314
+    python314Packages.pip
     postman
     ripgrep
     ruby
