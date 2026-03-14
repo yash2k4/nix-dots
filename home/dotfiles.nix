@@ -10,6 +10,7 @@ in
     ".config/cava".source = mkOutOfStoreSymlink "${configDir}/cava";
     ".config/doom".source = mkOutOfStoreSymlink "${configDir}/doom";
     ".config/dunst".source = mkOutOfStoreSymlink "${configDir}/dunst";
+    ".config/flameshot".source = mkOutOfStoreSymlink "${configDir}/flameshot";
     ".config/foot".source = mkOutOfStoreSymlink "${configDir}/foot";
     ".config/fuzzel".source = mkOutOfStoreSymlink "${configDir}/fuzzel";
     ".config/ghostty".source = mkOutOfStoreSymlink "${configDir}/ghostty";

@@ -9,6 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
+    bluetui
     dunst
     lxappearance
     maim
