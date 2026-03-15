@@ -26,7 +26,7 @@
     go
     gradle
     jdk21
-    jetbrains.idea
+    jetbrains.idea-oss
     kdePackages.kate
     kotlin
     lazydocker
