@@ -8,7 +8,6 @@ in
     ".config/alacritty".source = mkOutOfStoreSymlink "${configDir}/alacritty";
     ".config/btop".source = mkOutOfStoreSymlink "${configDir}/btop";
     ".config/cava".source = mkOutOfStoreSymlink "${configDir}/cava";
-    ".config/doom".source = mkOutOfStoreSymlink "${configDir}/doom";
     ".config/dunst".source = mkOutOfStoreSymlink "${configDir}/dunst";
     ".config/flameshot".source = mkOutOfStoreSymlink "${configDir}/flameshot";
     ".config/foot".source = mkOutOfStoreSymlink "${configDir}/foot";
