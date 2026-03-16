@@ -4,8 +4,9 @@
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
     ../../modules/services.nix
-    ../../modules/users.nix
     ../../modules/stylix.nix
+    ../../modules/users.nix
+    ../../modules/zram.nix
     ../../modules/wm/niri.nix
   ];
 
@@ -59,11 +60,4 @@
   system.stateVersion = "25.11";
 
   time.timeZone = "Asia/Kolkata";
-
-  zramSwap = {
-    enable = true;
-    priority = 100;
-    algorithm = "lz4";
-    memoryPercent = 50;
-  };
 }
