@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -54,7 +54,16 @@
     zsh.enable = true;
   };
 
+  swapDevices = lib.mkForce [];
+
   system.stateVersion = "25.11";
 
   time.timeZone = "Asia/Kolkata";
+
+  zramSwap = {
+    enable = true;
+    priority = 100;
+    algorithm = "lz4";
+    memoryPercent = 50;
+  };
 }
