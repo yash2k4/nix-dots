@@ -1,7 +1,6 @@
 <div align="center">
 
 # ❄️ nix-dots
-
 *A fully declarative, reproducible system configuration built on Nix Flakes and Home Manager,*
 *managing everything from kernel modules to dotfiles as a single source of truth.*
 
@@ -44,10 +43,10 @@ Authenticate the GitHub CLI over SSH. A device code will be issued, verify it at
 gh auth login
 ```
 
-Clone the repository as a shallow copy to avoid unnecessary history, then replace the placeholder hardware configuration with the one generated for your machine by the installer:
+Clone the repository, then replace the placeholder hardware configuration with the one generated for your machine by the installer:
 
 ```bash
-gh repo clone yash2k4/nix-dots -- --depth=1
+gh repo clone yash2k4/nix-dots
 cd nix-dots
 rm hosts/nixro/hardware-configuration.nix
 cp /etc/nixos/hardware-configuration.nix hosts/nixro/
