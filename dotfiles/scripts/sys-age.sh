@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if ! install_time=$(stat -c %W / 2>/dev/null); then
-  install_time=0
+if ! install_time=$(stat -c %W /nix/store 2>/dev/null) || [[ "$install_time" -le 0 ]]; then
+  install_time=$(stat -c %Y /nix/var/nix/profiles/system-1-link 2>/dev/null || echo 0)
 fi
 
 if [[ "$install_time" -le 0 ]]; then
-  if [[ -f /var/log/pacman.log ]]; then
-    install_time=$(stat -c %Y /var/log/pacman.log)
-  else
-    echo "Cannot determine install date."
-    exit 1
-  fi
+  echo "Cannot determine install date."
+  exit 1
 fi
 
 current_time=$(date +%s)
 install_datetime=$(date -d "@$install_time" "+%Y-%m-%d %H:%M:%S")
-
 age_seconds=$((current_time - install_time))
 
 seconds=$((age_seconds % 60))
@@ -40,6 +35,7 @@ p() {
 
 echo "System Install Date & Time: $install_datetime"
 echo
+
 echo "Time Since Install:"
 printf "In Seconds: %s\n" "$(p "$age_seconds" second)"
 printf "In Minutes: %s, %s\n" "$(p "$total_minutes" minute)" "$(p "$seconds" second)"

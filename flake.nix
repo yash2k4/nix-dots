@@ -26,33 +26,34 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, noctalia, noctalia-qs, ... }@inputs:
-
+  outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, noctalia, noctalia-qs, nvf, ... }@inputs:
   {
     nixosConfigurations.nixro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-
       specialArgs = { inherit inputs; };
-
       modules = [
         ./hosts/nixro/configuration.nix
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
-
         {
           home-manager = {
             backupFileExtension = "backup";
             extraSpecialArgs = { inherit inputs; };
             useGlobalPkgs = true;
             useUserPackages = true;
-
             users.yash2k4 = {
               imports = [
                 ./home/home.nix
                 spicetify-nix.homeManagerModules.default
                 inputs.noctalia.homeModules.default
+                nvf.homeManagerModules.default
               ];
             };
           };
