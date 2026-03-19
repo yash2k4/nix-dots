@@ -7,7 +7,16 @@
     enable = true;
 
     settings.vim = {
-      autocomplete.nvim-cmp.enable = true;
+      autocomplete.nvim-cmp = {
+        enable = true;
+        mappings = {
+          next = "<Down>";
+          previous = "<Up>";
+          confirm = "<CR>";
+          complete = "<C-Space>";
+          close = "<C-e>";
+        };
+      };
 
       autopairs.nvim-autopairs.enable = true;
 
@@ -23,7 +32,12 @@
       extraPackages = with pkgs; [
         dockerfile-language-server
         hadolint
+        helm-ls
         kubectl
+        nodePackages.intelephense
+        rubyPackages.solargraph
+        sqls
+        tailwindcss-language-server
         yaml-language-server
       ];
 
@@ -84,6 +98,11 @@
           lsp.enable = true;
         };
 
+        json = {
+          enable = true;
+          lsp.enable = true;
+        };
+
         lua = {
           enable = true;
           lsp.enable = true;
@@ -99,16 +118,34 @@
           lsp.servers = ["nil"];
         };
 
+        php = {
+          enable = true;
+          lsp.enable = true;
+          lsp.servers = ["intelephense"];
+        };
+
         python = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["pyright"];
         };
 
+        ruby = {
+          enable = true;
+          lsp.enable = true;
+          lsp.servers = ["solargraph"];
+        };
+
         rust = {
           enable = true;
           extensions.crates-nvim.enable = true;
           lsp.enable = true;
+        };
+
+        sql = {
+          enable = true;
+          lsp.enable = true;
+          lsp.servers = ["sqls"];
         };
 
         terraform = {
@@ -119,6 +156,7 @@
         ts = {
           enable = true;
           lsp.enable = true;
+          extensions.ts-error-translator.enable = true;
         };
 
         typst = {
@@ -207,10 +245,6 @@
           action = "<cmd>Trouble diagnostics toggle<CR>";
           desc = "Toggle diagnostics";
         };
-        "<leader>lg" = {
-          action = "<cmd>LazyGit<CR>";
-          desc = "Open LazyGit";
-        };
 
         "<C-h>" = {
           action = "<C-w>h";
@@ -227,11 +261,6 @@
         "<C-l>" = {
           action = "<C-w>l";
           desc = "Move to right window";
-        };
-
-        "<leader>q" = {
-          action = "<cmd>q<CR>";
-          desc = "Quit";
         };
 
         "<leader>rn" = {
@@ -251,11 +280,6 @@
         "<leader>tt" = {
           action = "<cmd>ToggleTerm<CR>";
           desc = "Toggle terminal";
-        };
-
-        "<leader>w" = {
-          action = "<cmd>w<CR>";
-          desc = "Save file";
         };
       };
 
@@ -305,7 +329,7 @@
       treesitter = {
         enable = true;
         autotagHtml = true;
-        context.enable = true;
+        context.enable = false;
         fold = true;
       };
 

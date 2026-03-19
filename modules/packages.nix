@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     ani-cli
     asciiquarium
@@ -29,6 +28,7 @@
     jetbrains.idea-oss
     kdePackages.kate
     kotlin
+    kubectl
     lazydocker
     lazygit
     libnotify
@@ -51,6 +51,7 @@
     pastel
     pavucontrol
     pfetch-rs
+    php
     pipes
     python314
     python314Packages.pip
@@ -63,6 +64,7 @@
     tealdeer
     tree
     tty-clock
+    typst
     unimatrix
     unzip
     uwufetch
