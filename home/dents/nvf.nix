@@ -39,6 +39,7 @@
         sqls
         tailwindcss-language-server
         yaml-language-server
+        jdt-language-server
       ];
 
       filetree.neo-tree = {
@@ -96,6 +97,7 @@
         java = {
           enable = true;
           lsp.enable = true;
+          lsp.servers = ["jdtls"];
         };
 
         json = {

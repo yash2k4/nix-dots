@@ -1,10 +1,8 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   programs.noctalia-shell = {
     enable = true;
 
     settings = lib.mkForce {
-
       appLauncher = {
         autoPasteClipboard = false;
         clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
@@ -27,7 +25,7 @@
         showCategories = true;
         showIconBackground = false;
         sortByMostUsed = true;
-        terminalCommand = "ghostty -e";
+        terminalCommand = "foot -e";
         useApp2Unit = false;
         viewMode = "list";
       };
@@ -198,9 +196,18 @@
 
       calendar = {
         cards = [
-          { enabled = true; id = "calendar-header-card"; }
-          { enabled = true; id = "calendar-month-card"; }
-          { enabled = true; id = "weather-card"; }
+          {
+            enabled = true;
+            id = "calendar-header-card";
+          }
+          {
+            enabled = true;
+            id = "calendar-month-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
         ];
       };
 
@@ -217,27 +224,45 @@
 
       controlCenter = {
         cards = [
-          { enabled = true; id = "profile-card"; }
-          { enabled = true; id = "shortcuts-card"; }
-          { enabled = true; id = "audio-card"; }
-          { enabled = false; id = "brightness-card"; }
-          { enabled = true; id = "weather-card"; }
-          { enabled = true; id = "media-sysmon-card"; }
+          {
+            enabled = true;
+            id = "profile-card";
+          }
+          {
+            enabled = true;
+            id = "shortcuts-card";
+          }
+          {
+            enabled = true;
+            id = "audio-card";
+          }
+          {
+            enabled = false;
+            id = "brightness-card";
+          }
+          {
+            enabled = true;
+            id = "weather-card";
+          }
+          {
+            enabled = true;
+            id = "media-sysmon-card";
+          }
         ];
         diskPath = "/";
         position = "close_to_bar_button";
         shortcuts = {
           left = [
-            { id = "Network"; }
-            { id = "Bluetooth"; }
-            { id = "WallpaperSelector"; }
-            { id = "NoctaliaPerformance"; }
+            {id = "Network";}
+            {id = "Bluetooth";}
+            {id = "WallpaperSelector";}
+            {id = "NoctaliaPerformance";}
           ];
           right = [
-            { id = "Notifications"; }
-            { id = "PowerProfile"; }
-            { id = "KeepAwake"; }
-            { id = "NightLight"; }
+            {id = "Notifications";}
+            {id = "PowerProfile";}
+            {id = "KeepAwake";}
+            {id = "NightLight";}
           ];
         };
       };
@@ -285,13 +310,13 @@
         forceBlackScreenCorners = false;
         iRadiusRatio = 1;
         keybinds = {
-          keyDown = [ "Down" ];
-          keyEnter = [ "Return" ];
-          keyEscape = [ "Esc" ];
-          keyLeft = [ "Left" ];
-          keyRemove = [ "Del" ];
-          keyRight = [ "Right" ];
-          keyUp = [ "Up" ];
+          keyDown = ["Down"];
+          keyEnter = ["Return"];
+          keyEscape = ["Esc"];
+          keyLeft = ["Left"];
+          keyRemove = ["Del"];
+          keyRight = ["Right"];
+          keyUp = ["Up"];
         };
         language = "";
         lockOnSuspend = true;
@@ -398,7 +423,7 @@
         autoHideMs = 2000;
         backgroundOpacity = 1;
         enabled = true;
-        enabledTypes = [ 0 1 2 ];
+        enabledTypes = [0 1 2];
         location = "top_right";
         monitors = [];
         overlayLayer = true;
@@ -415,13 +440,55 @@
         largeButtonsStyle = true;
         position = "center";
         powerOptions = [
-          { action = "lock"; command = ""; countdownEnabled = true; enabled = true; keybind = "1"; }
-          { action = "suspend"; command = ""; countdownEnabled = true; enabled = true; keybind = "2"; }
-          { action = "hibernate"; command = ""; countdownEnabled = true; enabled = true; keybind = "3"; }
-          { action = "reboot"; command = ""; countdownEnabled = true; enabled = true; keybind = "4"; }
-          { action = "logout"; command = ""; countdownEnabled = true; enabled = true; keybind = "5"; }
-          { action = "shutdown"; command = ""; countdownEnabled = true; enabled = true; keybind = "6"; }
-          { action = "rebootToUefi"; command = ""; countdownEnabled = true; enabled = true; keybind = ""; }
+          {
+            action = "lock";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "1";
+          }
+          {
+            action = "suspend";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "2";
+          }
+          {
+            action = "hibernate";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "3";
+          }
+          {
+            action = "reboot";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "4";
+          }
+          {
+            action = "logout";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "5";
+          }
+          {
+            action = "shutdown";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "6";
+          }
+          {
+            action = "rebootToUefi";
+            command = "";
+            countdownEnabled = true;
+            enabled = true;
+            keybind = "";
+          }
         ];
         showHeader = true;
         showKeybinds = true;
@@ -512,7 +579,6 @@
         wallhavenSorting = "relevance";
         wallpaperChangeMode = "alphabetical";
       };
-
     };
 
     colors = lib.mkForce {
@@ -536,11 +602,14 @@
 
     plugins = {
       sources = [
-        { enabled = true; name = "Noctalia Plugins"; url = "https://github.com/noctalia-dev/noctalia-plugins"; }
+        {
+          enabled = true;
+          name = "Noctalia Plugins";
+          url = "https://github.com/noctalia-dev/noctalia-plugins";
+        }
       ];
       states = {};
       version = 2;
     };
-
   };
 }
