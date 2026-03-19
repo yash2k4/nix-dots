@@ -1,10 +1,12 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.nvf = {
     enable = true;
 
     settings.vim = {
-
       autocomplete.nvim-cmp.enable = true;
 
       autopairs.nvim-autopairs.enable = true;
@@ -60,7 +62,7 @@
         clang = {
           enable = true;
           lsp.enable = true;
-          lsp.servers = [ "clangd" ];
+          lsp.servers = ["clangd"];
         };
 
         css = {
@@ -94,13 +96,13 @@
         nix = {
           enable = true;
           lsp.enable = true;
-          lsp.servers = [ "nil" ];
+          lsp.servers = ["nil"];
         };
 
         python = {
           enable = true;
           lsp.enable = true;
-          lsp.servers = [ "pyright" ];
+          lsp.servers = ["pyright"];
         };
 
         rust = {
@@ -133,7 +135,6 @@
           enable = true;
           lsp.enable = true;
         };
-
       };
 
       lazy.enable = true;
@@ -148,44 +149,114 @@
       };
 
       maps.normal = {
+        "<S-Tab>" = {
+          action = "<cmd>bprev<CR>";
+          desc = "Previous buffer";
+        };
+        "<Tab>" = {
+          action = "<cmd>bnext<CR>";
+          desc = "Next buffer";
+        };
+        "<leader>bd" = {
+          action = "<cmd>bdelete<CR>";
+          desc = "Delete buffer";
+        };
 
-        "<S-Tab>" = { action = "<cmd>bprev<CR>"; desc = "Previous buffer"; };
-        "<Tab>" = { action = "<cmd>bnext<CR>"; desc = "Next buffer"; };
-        "<leader>bd" = { action = "<cmd>bdelete<CR>"; desc = "Delete buffer"; };
+        "<leader>ca" = {
+          action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+          desc = "Code action";
+        };
 
-        "<leader>ca" = { action = "<cmd>lua vim.lsp.buf.code_action()<CR>"; desc = "Code action"; };
+        "<leader>e" = {
+          action = "<cmd>Neotree toggle<CR>";
+          desc = "Toggle file tree";
+        };
 
-        "<leader>e" = { action = "<cmd>Neotree toggle<CR>"; desc = "Toggle file tree"; };
+        "<leader>fb" = {
+          action = "<cmd>Telescope buffers<CR>";
+          desc = "Find buffers";
+        };
+        "<leader>ff" = {
+          action = "<cmd>Telescope find_files<CR>";
+          desc = "Find files";
+        };
+        "<leader>fg" = {
+          action = "<cmd>Telescope live_grep<CR>";
+          desc = "Live grep";
+        };
+        "<leader>fh" = {
+          action = "<cmd>Telescope help_tags<CR>";
+          desc = "Help tags";
+        };
 
-        "<leader>fb" = { action = "<cmd>Telescope buffers<CR>"; desc = "Find buffers"; };
-        "<leader>ff" = { action = "<cmd>Telescope find_files<CR>"; desc = "Find files"; };
-        "<leader>fg" = { action = "<cmd>Telescope live_grep<CR>"; desc = "Live grep"; };
-        "<leader>fh" = { action = "<cmd>Telescope help_tags<CR>"; desc = "Help tags"; };
+        "gd" = {
+          action = "<cmd>lua vim.lsp.buf.definition()<CR>";
+          desc = "Go to definition";
+        };
+        "gr" = {
+          action = "<cmd>lua vim.lsp.buf.references()<CR>";
+          desc = "Go to references";
+        };
 
-        "gd" = { action = "<cmd>lua vim.lsp.buf.definition()<CR>"; desc = "Go to definition"; };
-        "gr" = { action = "<cmd>lua vim.lsp.buf.references()<CR>"; desc = "Go to references"; };
+        "K" = {
+          action = "<cmd>lua vim.lsp.buf.hover()<CR>";
+          desc = "Hover docs";
+        };
 
-        "K" = { action = "<cmd>lua vim.lsp.buf.hover()<CR>"; desc = "Hover docs"; };
+        "<leader>ld" = {
+          action = "<cmd>Trouble diagnostics toggle<CR>";
+          desc = "Toggle diagnostics";
+        };
+        "<leader>lg" = {
+          action = "<cmd>LazyGit<CR>";
+          desc = "Open LazyGit";
+        };
 
-        "<leader>ld" = { action = "<cmd>Trouble diagnostics toggle<CR>"; desc = "Toggle diagnostics"; };
-        "<leader>lg" = { action = "<cmd>LazyGit<CR>"; desc = "Open LazyGit"; };
+        "<C-h>" = {
+          action = "<C-w>h";
+          desc = "Move to left window";
+        };
+        "<C-j>" = {
+          action = "<C-w>j";
+          desc = "Move to lower window";
+        };
+        "<C-k>" = {
+          action = "<C-w>k";
+          desc = "Move to upper window";
+        };
+        "<C-l>" = {
+          action = "<C-w>l";
+          desc = "Move to right window";
+        };
 
-        "<C-h>" = { action = "<C-w>h"; desc = "Move to left window"; };
-        "<C-j>" = { action = "<C-w>j"; desc = "Move to lower window"; };
-        "<C-k>" = { action = "<C-w>k"; desc = "Move to upper window"; };
-        "<C-l>" = { action = "<C-w>l"; desc = "Move to right window"; };
+        "<leader>q" = {
+          action = "<cmd>q<CR>";
+          desc = "Quit";
+        };
 
-        "<leader>q" = { action = "<cmd>q<CR>"; desc = "Quit"; };
+        "<leader>rn" = {
+          action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+          desc = "Rename symbol";
+        };
 
-        "<leader>rn" = { action = "<cmd>lua vim.lsp.buf.rename()<CR>"; desc = "Rename symbol"; };
+        "<leader>sh" = {
+          action = "<cmd>split<CR>";
+          desc = "Horizontal split";
+        };
+        "<leader>sv" = {
+          action = "<cmd>vsplit<CR>";
+          desc = "Vertical split";
+        };
 
-        "<leader>sh" = { action = "<cmd>split<CR>"; desc = "Horizontal split"; };
-        "<leader>sv" = { action = "<cmd>vsplit<CR>"; desc = "Vertical split"; };
+        "<leader>tt" = {
+          action = "<cmd>ToggleTerm<CR>";
+          desc = "Toggle terminal";
+        };
 
-        "<leader>tt" = { action = "<cmd>ToggleTerm<CR>"; desc = "Toggle terminal"; };
-
-        "<leader>w" = { action = "<cmd>w<CR>"; desc = "Save file"; };
-
+        "<leader>w" = {
+          action = "<cmd>w<CR>";
+          desc = "Save file";
+        };
       };
 
       notify.nvim-notify.enable = true;
@@ -207,7 +278,7 @@
 
       spellcheck = {
         enable = true;
-        languages = [ "en" ];
+        languages = ["en"];
       };
 
       statusline.lualine = {
@@ -238,8 +309,6 @@
         fold = true;
       };
 
-      ui.fastaction.enable = true;
-
       utility = {
         diffview-nvim.enable = true;
         motion.leap.enable = true;
@@ -258,7 +327,6 @@
         nvim-scrollbar.enable = true;
         nvim-web-devicons.enable = true;
       };
-
     };
   };
 }
