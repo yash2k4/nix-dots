@@ -1,35 +1,34 @@
 <div align="center">
 
-# ❄️ nix-dots
-*A fully declarative, reproducible system configuration built on Nix Flakes and Home Manager,*
-*managing everything from kernel modules to dotfiles as a single source of truth.*
+# ❄️ nix-dots ❄️
 
-![NixOS](https://img.shields.io/badge/NixOS-unstable-5277C3?style=flat-square&logo=nixos&logoColor=white)
-![Flakes](https://img.shields.io/badge/Flakes-enabled-5277C3?style=flat-square&logo=nixos&logoColor=white)
-![Home Manager](https://img.shields.io/badge/Home_Manager-enabled-5277C3?style=flat-square&logo=nixos&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Forever_WIP_%F0%9F%90%87-orange?style=flat-square)
-
-*This configuration is, by nature, perpetually evolving. NixOS is an endless rabbit hole,*
-*and every option in the manual is an invitation to go deeper.*
+![NixOS](https://img.shields.io/badge/NixOS-unstable-5277C3?style=for-the-badge&logo=nixos&logoColor=white)
+![Flakes](https://img.shields.io/badge/Flakes-enabled-5277C3?style=for-the-badge&logo=nixos&logoColor=white)
+![Home Manager](https://img.shields.io/badge/Home_Manager-enabled-5277C3?style=for-the-badge&logo=nixos&logoColor=white)
 
 </div>
 
-## 🚀 Auto Install
+## Auto Install
 
 > [!WARNING]
-> WIP — only works if the repository is public.
+> Work in Progress. Repository must be publicly accessible for unauthenticated
+> flake evaluation.
 
 ```bash
-nix-shell -p git --command "nix run github:yash2k4/nix-dots --extra-experimental-features nix-command --extra-experimental-features flakes"
+nix-shell -p git --command \
+  "nix run github:yash2k4/nix-dots \
+    --extra-experimental-features nix-command \
+    --extra-experimental-features flakes"
 ```
 
-## 🛠️ Manual Install
+## Manual Install
 
-Install NixOS via the Calamares installer with **No Desktop** selected, then reboot into the minimal environment.
+### 1. Bootstrap
 
-Declare `git` and `gh` as system packages in `/etc/nixos/configuration.nix`, then apply the change:
+Extend the system closure with the requisite tooling and activate:
 
 ```nix
+# /etc/nixos/configuration.nix
 environment.systemPackages = with pkgs; [ git gh ];
 ```
 
@@ -37,24 +36,39 @@ environment.systemPackages = with pkgs; [ git gh ];
 sudo nixos-rebuild switch
 ```
 
-Authenticate the GitHub CLI over SSH. A device code will be issued, verify it at `github.com/login/device` from another machine:
+### 2. Authenticate
 
 ```bash
 gh auth login
+# GitHub.com → SSH → authenticate via browser
+# Verify device code at github.com/login/device from another machine
 ```
 
-Clone the repository, then replace the placeholder hardware configuration with the one generated for your machine by the installer:
+### 3. Clone & Inject Hardware Config
+
+Materialise the repository, expunge the stub, and bind the machine-generated
+hardware profile:
 
 ```bash
-gh repo clone yash2k4/nix-dots
-cd nix-dots
-rm hosts/nixro/hardware-configuration.nix
-cp /etc/nixos/hardware-configuration.nix hosts/nixro/
+gh repo clone yash2k4/nix-dots ~/nix-dots
+rm ~/nix-dots/hosts/nixro/hardware-configuration.nix
+cp /etc/nixos/hardware-configuration.nix ~/nix-dots/hosts/nixro/hardware-configuration.nix
 ```
 
-Evaluate the flake against the `nixro` host configuration, apply it, and reboot:
+### 4. Build & Switch
+
+Evaluate the flake, realise all closures into the Nix store, and atomically
+rotate the system profile:
 
 ```bash
 sudo nixos-rebuild switch --flake ~/nix-dots#nixro
 reboot
 ```
+
+<div align="center">
+
+<sub>Built on <a href="https://nixos.org">NixOS</a> · Managed with
+<a href="https://github.com/nix-community/home-manager">Home Manager</a> ·
+Pinned with <a href="https://nixos.wiki/wiki/Flakes">Flakes</a></sub>
+
+</div>
