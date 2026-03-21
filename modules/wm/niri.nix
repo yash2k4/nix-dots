@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  imports = [ ../packages.nix ];
+{pkgs, ...}: {
+  imports = [../packages.nix];
 
   programs.niri.enable = true;
   xdg.portal = {
@@ -12,6 +10,7 @@
     flameshot
     foot
     fuzzel
+    grim
     nwg-look
     swayidle
     wl-clipboard
