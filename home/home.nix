@@ -1,15 +1,19 @@
-{ config, pkgs, inputs, lib, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     ./dotfiles.nix
-    ./dents/bash.nix
     ./dents/git.nix
     ./dents/nix-search.nix
     ./dents/nvf.nix
     ./dents/noctalia.nix
+    ./dents/shell.nix
     ./dents/spicetify.nix
     ./dents/vesktop.nix
-    ./dents/zsh.nix
   ];
 
   home = {
