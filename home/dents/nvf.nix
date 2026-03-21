@@ -92,6 +92,7 @@
 
         html = {
           enable = true;
+          lsp.enable = true;
         };
 
         java = {
@@ -112,6 +113,7 @@
 
         markdown = {
           enable = true;
+          lsp.enable = true;
         };
 
         nix = {
@@ -293,9 +295,10 @@
         number = true;
         relativenumber = true;
         scrolloff = 8;
-        shiftwidth = 2;
+        shiftwidth = 4;
+        softtabstop = 4;
         signcolumn = "yes";
-        tabstop = 2;
+        tabstop = 4;
         termguicolors = true;
         wrap = false;
       };

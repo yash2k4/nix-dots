@@ -5,6 +5,10 @@ cursor {
     xcursor-size 32
 }
 
+hotkey-overlay{
+    skip-at-startup
+}
+
 workspace "1"
 workspace "2"
 workspace "3"
