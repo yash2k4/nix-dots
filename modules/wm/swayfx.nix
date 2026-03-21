@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = [ ../packages.nix ];
+{pkgs, ...}: {
+  imports = [../packages.nix];
 
   programs.sway = {
     enable = true;
@@ -16,8 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    bluetui
-    dunst
+    autotiling
     foot
     fuzzel
     grim

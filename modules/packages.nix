@@ -24,6 +24,7 @@
     glab
     go
     gradle
+    helix
     jdk21
     jetbrains.idea-oss
     kdePackages.kate

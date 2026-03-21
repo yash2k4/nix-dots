@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nvidia.nix
@@ -7,7 +10,7 @@
     ../../modules/stylix.nix
     ../../modules/users.nix
     ../../modules/zram.nix
-    ../../modules/wm/niri.nix
+    ../../modules/wm/swayfx.nix
   ];
 
   boot.loader = {

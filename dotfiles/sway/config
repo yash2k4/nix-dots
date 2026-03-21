@@ -46,33 +46,36 @@ floating_modifier $mod
 exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always swaybg -i ~/Pictures/walls/nixppuccin.jpg -m fill
-exec_always --no-startup-id dunst
 exec_always autotiling
-exec_always ~/.config/sway/battery-warning.sh
-exec_always --no-startup-id sh -c 'pkill waybar; waybar'
-exec_always --no-startup-id sh -c 'pkill -x swayidle; swayidle -w timeout 300 "swaylock -f" before-sleep "swaylock -f"'
+exec_always --no-startup-id noctalia-shell
+
+exec_always --no-startup-id sh -c 'pkill -x swayidle; swayidle -w \
+timeout 300 "noctalia-shell ipc call lockScreen lock" \
+timeout 600 "swaymsg output * dpms off" \
+resume "swaymsg output * dpms on" \
+before-sleep "noctalia-shell ipc call lockScreen lock"'
 
 input * {
-xkb_layout us
-xkb_numlock enabled
-pointer_accel 0
+    xkb_layout us
+    xkb_numlock enabled
+    pointer_accel 0
 }
 
 input type:keyboard {
-repeat_delay 300
-repeat_rate 50
+    repeat_delay 300
+    repeat_rate 50
 }
 
 input type:touchpad {
-tap enabled
-natural_scroll enabled
+    tap enabled
+    natural_scroll enabled
 }
 
 bindsym $mod+Return exec $term
 bindsym $mod+space exec $menu
 bindsym $mod+n exec $fm
 bindsym $mod+b exec $browser
-bindsym $mod+Shift+Escape exec swaylock -f
+bindsym $mod+Shift+Escape exec noctalia-shell ipc call lockScreen lock
 
 bindsym $mod+Shift+i exec $term --title wifi_tui -e nmtui
 bindsym $mod+Shift+b exec $term --title bluetui_tui -e bluetui
@@ -157,6 +160,8 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+for_window [app_id="noctalia-shell"] floating enable, border none
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+c restart
