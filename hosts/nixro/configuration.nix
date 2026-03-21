@@ -10,7 +10,7 @@
     ../../modules/stylix.nix
     ../../modules/users.nix
     ../../modules/zram.nix
-    ../../modules/wm/swayfx.nix
+    ../../modules/wm/niri.nix
   ];
 
   boot.loader = {
