@@ -8,7 +8,6 @@
 
   environment.systemPackages = with pkgs; [
     flameshot
-    foot
     fuzzel
     grim
     nwg-look

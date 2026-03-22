@@ -19,12 +19,12 @@ in {
     ".config/niri".source = mkOutOfStoreSymlink "${configDir}/niri";
     ".config/picom".source = mkOutOfStoreSymlink "${configDir}/picom";
     ".config/polybar".source = mkOutOfStoreSymlink "${configDir}/polybar";
+    ".config/ranger".source = mkOutOfStoreSymlink "${configDir}/ranger";
     ".config/rofi".source = mkOutOfStoreSymlink "${configDir}/rofi";
     ".config/scripts".source = mkOutOfStoreSymlink "${configDir}/scripts";
     ".config/sway".source = mkOutOfStoreSymlink "${configDir}/sway";
     ".config/swaylock".source = mkOutOfStoreSymlink "${configDir}/swaylock";
     ".config/waybar".source = mkOutOfStoreSymlink "${configDir}/waybar";
-    ".config/yazi".source = mkOutOfStoreSymlink "${configDir}/yazi";
     ".config/zathura".source = mkOutOfStoreSymlink "${configDir}/zathura";
   };
 }

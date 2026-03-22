@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = [ ../packages.nix ];
+{pkgs, ...}: {
+  imports = [../packages.nix];
 
   services.xserver = {
     enable = true;
@@ -8,7 +7,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    alacritty
     bluetui
     dunst
     lxappearance

@@ -9,7 +9,7 @@ dynamic_padding = false
 decorations = "full"
 
 [font]
-size = 20
+size = 22
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"

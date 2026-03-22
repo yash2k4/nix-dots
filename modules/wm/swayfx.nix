@@ -16,7 +16,6 @@
 
   environment.systemPackages = with pkgs; [
     autotiling
-    foot
     fuzzel
     grim
     nwg-look

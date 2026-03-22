@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = [ ../packages.nix ];
+{pkgs, ...}: {
+  imports = [../packages.nix];
 
   programs.hyprland = {
     enable = true;
@@ -16,7 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     flameshot
-    foot
     fuzzel
     hypridle
     hyprlock

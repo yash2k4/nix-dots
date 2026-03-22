@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    alacritty
     ani-cli
     asciiquarium
     astroterm
@@ -11,7 +12,9 @@
     cbonsai
     cointop
     cowsay
+    direnv
     docker-compose
+    docker-language-server
     dysk
     eza
     fastfetch
@@ -25,12 +28,16 @@
     go
     gradle
     jdk21
+    jdt-language-server
     jetbrains.idea-oss
+    jq
+    jujutsu
     kdePackages.kate
     kotlin
     kubectl
     lazydocker
     lazygit
+    lazyjj
     libnotify
     libqalculate
     localsend
@@ -52,25 +59,28 @@
     pavucontrol
     pfetch-rs
     php
-    pipes
+    pipes-rs
     python314
     python314Packages.pip
     postman
     ripgrep
+    ranger
     ruby
+    rust-analyzer
     rustup
     sl
     speedtest-cli
     tealdeer
     tree
     tty-clock
+    typescript
     typst
+    ueberzugpp
     unimatrix
     unzip
     uwufetch
     vscode
     wget
-    yazi
     zathura
     zoxide
     zig

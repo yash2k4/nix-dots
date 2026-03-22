@@ -88,7 +88,7 @@ window-rule {
 }
 
 binds {
-    Mod+Return { spawn "foot"; }
+    Mod+Return { spawn "alacritty"; }
     Mod+Space { spawn "fuzzel"; }
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }
