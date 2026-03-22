@@ -5,7 +5,7 @@ cursor {
     xcursor-size 32
 }
 
-hotkey-overlay{
+hotkey-overlay {
     skip-at-startup
 }
 
@@ -37,7 +37,7 @@ input {
 }
 
 layout {
-    gaps 5
+    gaps 8
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -46,19 +46,21 @@ layout {
     }
     default-column-width { proportion 0.5; }
     focus-ring {
-        width 1.5
+        width 2
         active-color "#cba6f7"
-        inactive-color "#45475a"
+        inactive-color "#313244"
     }
     border {
-        off
-        width 1.5
+        width 2
         active-color "#cba6f7"
         inactive-color "#313244"
         urgent-color "#f38ba8"
     }
     shadow {
-        off
+        on
+        softness 30
+        spread 5
+        color "#00000088"
     }
     struts {}
 }
@@ -69,22 +71,63 @@ spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'noctalia-shell ipc call loc
 
 switch-events {
     lid-close {
-        spawn "sh" "-c" "noctalia-shell ipc call lockScreen lock && sleep 1 && systemctl suspend";
+        spawn "sh" "-c" "noctalia-shell ipc call lockScreen lock && sleep 1 && systemctl suspend"
     }
 }
 
 animations {
+    slowdown 0.8
+
     workspace-switch { off; }
+
+    window-open {
+        duration-ms 350
+        curve "ease-out-expo"
+    }
+    window-close {
+        duration-ms 250
+        curve "ease-out-quad"
+    }
+    window-movement {
+        duration-ms 350
+        curve "ease-out-expo"
+    }
+    window-resize {
+        duration-ms 350
+        curve "ease-out-expo"
+    }
+    horizontal-view-movement {
+        duration-ms 350
+        curve "ease-out-expo"
+    }
+    config-notification-open-close {
+        duration-ms 300
+        curve "ease-out-expo"
+    }
+    screenshot-ui-open {
+        duration-ms 300
+        curve "ease-out-expo"
+    }
+    overview-open-close {
+        duration-ms 400
+        curve "ease-out-expo"
+    }
 }
 
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 12
     clip-to-geometry true
 }
 
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+}
+
+window-rule {
+    match app-id="fuzzel"
+    default-column-width { proportion 0.33333; }
+    open-floating true
 }
 
 binds {

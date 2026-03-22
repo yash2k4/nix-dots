@@ -15,7 +15,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    autotiling
+    autotiling-rs
     fuzzel
     grim
     nwg-look
