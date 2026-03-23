@@ -1,0 +1,24 @@
+[manager]
+show_hidden = true
+sort_by = "natural"
+sort_dir_first = true
+
+[opener]
+image = [
+  { run = 'nsxiv "$@"', orphan = true }
+]
+
+pdf = [
+  { run = 'zathura "$@"', orphan = true }
+]
+
+video = [
+  { run = 'mpv "$@"', orphan = true }
+]
+
+[open]
+rules = [
+  { mime = "image/*", use = "image" },
+  { mime = "application/pdf", use = "pdf" },
+  { mime = "video/*", use = "video" }
+]

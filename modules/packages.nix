@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    alacritty
     ani-cli
     asciiquarium
     astroterm
@@ -20,6 +19,7 @@
     fastfetch
     fd
     figlet
+    foot
     fortune
     fzf
     gcc
@@ -66,7 +66,6 @@
     python314
     python314Packages.pip
     postman
-    ranger
     ripgrep
     ruby
     rust-analyzer
@@ -78,7 +77,6 @@
     tty-clock
     typescript
     typst
-    ueberzugpp
     unimatrix
     unzip
     uwufetch
