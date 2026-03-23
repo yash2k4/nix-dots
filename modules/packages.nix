@@ -23,7 +23,6 @@
     fzf
     gcc
     gh
-    gimp
     glab
     go
     gradle
