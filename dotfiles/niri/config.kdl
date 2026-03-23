@@ -131,7 +131,7 @@ window-rule {
 }
 
 binds {
-    Mod+Return { spawn "kitty"; }
+    Mod+Return { spawn "alacritty"; }
     Mod+Space { spawn "fuzzel"; }
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }
