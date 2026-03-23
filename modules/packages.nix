@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    alacritty
     ani-cli
     asciiquarium
     astroterm
@@ -24,6 +23,7 @@
     fzf
     gcc
     gh
+    gimp
     glab
     go
     gradle
@@ -33,6 +33,7 @@
     jq
     jujutsu
     kdePackages.kate
+    kitty
     kotlin
     kubectl
     lazydocker
@@ -47,6 +48,7 @@
     maven
     microfetch
     mpv
+    ncdu
     nemo
     nerdfetch
     neovim
@@ -64,7 +66,6 @@
     python314Packages.pip
     postman
     ripgrep
-    ranger
     ruby
     rust-analyzer
     rustup
@@ -75,12 +76,12 @@
     tty-clock
     typescript
     typst
-    ueberzugpp
     unimatrix
     unzip
     uwufetch
     vscode
     wget
+    yazi
     zathura
     zoxide
     zig

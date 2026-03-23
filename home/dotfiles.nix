@@ -25,6 +25,7 @@ in {
     ".config/sway".source = mkOutOfStoreSymlink "${configDir}/sway";
     ".config/swaylock".source = mkOutOfStoreSymlink "${configDir}/swaylock";
     ".config/waybar".source = mkOutOfStoreSymlink "${configDir}/waybar";
+    ".config/yazi".source = mkOutOfStoreSymlink "${configDir}/yazi";
     ".config/zathura".source = mkOutOfStoreSymlink "${configDir}/zathura";
   };
 }

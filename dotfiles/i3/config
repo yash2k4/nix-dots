@@ -3,7 +3,7 @@ font pango:JetBrainsMono Nerd Font Bold 14
 floating_modifier $mod
 for_window [class="^.*"] border pixel 1
 
-set $terminal    alacritty
+set $terminal    kitty
 set $browser     firefox
 set $filemanager nemo
 set $launcher    rofi
