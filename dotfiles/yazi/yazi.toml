@@ -4,14 +4,15 @@ sort_by = "natural"
 sort_dir_first = true
 
 [opener]
+edit = [
+  { run = 'nvim "$@"', block = true }
+]
 image = [
   { run = 'nsxiv "$@"', orphan = true }
 ]
-
 pdf = [
   { run = 'zathura "$@"', orphan = true }
 ]
-
 video = [
   { run = 'mpv "$@"', orphan = true }
 ]
@@ -20,5 +21,9 @@ video = [
 rules = [
   { mime = "image/*", use = "image" },
   { mime = "application/pdf", use = "pdf" },
-  { mime = "video/*", use = "video" }
+  { mime = "video/*", use = "video" },
+  { mime = "text/*", use = "edit" },
+  { mime = "application/json", use = "edit" },
+  { mime = "application/javascript", use = "edit" },
+  { mime = "*", use = "edit" }
 ]
