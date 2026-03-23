@@ -335,7 +335,6 @@
         enable = true;
         autotagHtml = true;
         context.enable = false;
-        fold = true;
       };
 
       utility = {
