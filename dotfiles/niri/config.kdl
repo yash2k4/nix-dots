@@ -124,12 +124,6 @@ window-rule {
     default-column-width {}
 }
 
-window-rule {
-    match app-id="fuzzel"
-    default-column-width { proportion 0.33333; }
-    open-floating true
-}
-
 binds {
     Mod+Return { spawn "foot"; }
     Mod+Space { spawn "fuzzel"; }
