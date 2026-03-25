@@ -33,19 +33,28 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, spicetify-nix, noctalia, noctalia-qs, nvf, ... }@inputs:
-  {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    stylix,
+    spicetify-nix,
+    noctalia,
+    noctalia-qs,
+    nvf,
+    ...
+  } @ inputs: {
     nixosConfigurations.nixro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
         ./hosts/nixro/configuration.nix
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            backupFileExtension = "backup";
-            extraSpecialArgs = { inherit inputs; };
+            backupFileExtension = "bak";
+            extraSpecialArgs = {inherit inputs;};
             useGlobalPkgs = true;
             useUserPackages = true;
             users.yash2k4 = {
