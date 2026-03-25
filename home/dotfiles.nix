@@ -12,13 +12,10 @@ in {
     ".config/fuzzel".source = mkOutOfStoreSymlink "${configDir}/fuzzel";
     ".config/ghostty".source = mkOutOfStoreSymlink "${configDir}/ghostty";
     ".config/hypr".source = mkOutOfStoreSymlink "${configDir}/hypr";
-    ".config/i3".source = mkOutOfStoreSymlink "${configDir}/i3";
     ".config/kitty".source = mkOutOfStoreSymlink "${configDir}/kitty";
     ".config/lazydocker".source = mkOutOfStoreSymlink "${configDir}/lazydocker";
     ".config/lazygit".source = mkOutOfStoreSymlink "${configDir}/lazygit";
     ".config/niri".source = mkOutOfStoreSymlink "${configDir}/niri";
-    ".config/picom".source = mkOutOfStoreSymlink "${configDir}/picom";
-    ".config/polybar".source = mkOutOfStoreSymlink "${configDir}/polybar";
     ".config/ranger".source = mkOutOfStoreSymlink "${configDir}/ranger";
     ".config/rofi".source = mkOutOfStoreSymlink "${configDir}/rofi";
     ".config/scripts".source = mkOutOfStoreSymlink "${configDir}/scripts";
