@@ -35,16 +35,6 @@
 
     fwupd.enable = true;
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time";
-          user = "greeter";
-        };
-      };
-    };
-
     gvfs.enable = true;
 
     openssh.enable = true;

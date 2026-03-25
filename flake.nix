@@ -44,11 +44,11 @@
     nvf,
     ...
   } @ inputs: {
-    nixosConfigurations.nixro = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.wrath = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/nixro/configuration.nix
+        ./nodes/wrath/configuration.nix
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {

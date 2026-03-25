@@ -4,15 +4,12 @@
   ...
 }: let
   aliases = {
-    ls = "eza --icons --group-directories-first";
     ll = "eza -la --icons --group-directories-first --git";
-    nixro = "sudo nixos-rebuild switch --flake ~/nix-dots#nixro --accept-flake-config";
-    nixrt = "sudo nixos-rebuild test --flake ~/nix-dots#nixro --accept-flake-config";
-    nixrb = "sudo nixos-rebuild build --flake ~/nix-dots#nixro --accept-flake-config";
-    nixup = "cd ~/nix-dots && nix flake update && sudo nixos-rebuild switch --flake .#nixro --accept-flake-config";
-    nixgc = "sudo nix-collect-garbage -d";
+    ls = "eza --icons --group-directories-first";
+    prs = "sudo nixos-rebuild switch --flake ~/nix-dots#pride --accept-flake-config";
     tree = "eza --tree --icons";
     vim = "nvim";
+    wrs = "sudo nixos-rebuild switch --flake ~/nix-dots#wrath --accept-flake-config";
   };
 in {
   programs.bash = {
@@ -38,6 +35,7 @@ in {
         mkdir -p "''${ZINIT_HOME:h}"
         git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
       fi
+
       source "''${ZINIT_HOME}/zinit.zsh"
 
       zinit ice depth=1
@@ -65,6 +63,7 @@ in {
       zstyle ':completion:*' menu select
       zstyle ':completion:*' use-cache on
       zstyle ':completion:*' cache-path "''${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons --color=always $realpath'
       zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --icons --color=always $realpath'
 

@@ -4,7 +4,6 @@
     ../../modules/nvidia.nix
     ../../modules/services.nix
     ../../modules/stylix.nix
-    ../../modules/users.nix
     ../../modules/zram.nix
     ../../modules/wm/niri.nix
   ];
@@ -25,7 +24,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   networking = {
-    hostName = "nixro";
+    hostName = "wrath";
     networkmanager.enable = true;
   };
 
@@ -39,6 +38,32 @@
   programs = {
     firefox.enable = true;
     zsh.enable = true;
+  };
+
+  services.greetd = {
+    enable = true;
+
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time";
+        user = "greeter";
+      };
+    };
+  };
+
+  users.users.yash2k4 = {
+    description = "yash2k4";
+
+    isNormalUser = true;
+
+    shell = pkgs.zsh;
+
+    extraGroups = [
+      "docker"
+      "libvirtd"
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   system.stateVersion = "25.11";
