@@ -6,7 +6,6 @@
   aliases = {
     ll = "eza -la --icons --group-directories-first --git";
     ls = "eza --icons --group-directories-first";
-    prs = "sudo nixos-rebuild switch --flake ~/nix-dots#pride --accept-flake-config";
     tree = "eza --tree --icons";
     vim = "nvim";
     wrs = "sudo nixos-rebuild switch --flake ~/nix-dots#wrath --accept-flake-config";

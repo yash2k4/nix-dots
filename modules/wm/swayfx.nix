@@ -16,12 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     autotiling-rs
-    fuzzel
-    grim
-    nwg-look
-    slurp
     swayidle
     swaylock-effects
-    wl-clipboard
   ];
 }

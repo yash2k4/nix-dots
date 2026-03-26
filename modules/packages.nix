@@ -19,8 +19,10 @@
     fastfetch
     fd
     figlet
+    flameshot
     foot
     fortune
+    fuzzel
     fzf
     gcc
     gh
@@ -28,6 +30,7 @@
     glab
     go
     gradle
+    grim
     jdk21
     jdt-language-server
     jetbrains.idea-oss
@@ -56,6 +59,7 @@
     nitch
     nodejs
     nsxiv
+    nwg-look
     obsidian
     papirus-icon-theme
     pastel
@@ -82,6 +86,7 @@
     uwufetch
     vscode
     wget
+    wl-clipboard
     yazi
     zathura
     zoxide

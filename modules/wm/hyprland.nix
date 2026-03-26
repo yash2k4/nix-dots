@@ -14,11 +14,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    flameshot
-    fuzzel
     hypridle
     hyprlock
-    nwg-look
-    wl-clipboard
   ];
 }

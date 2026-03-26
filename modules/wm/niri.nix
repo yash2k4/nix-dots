@@ -7,12 +7,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    flameshot
-    fuzzel
-    grim
-    nwg-look
     swayidle
-    wl-clipboard
     xwayland-satellite
   ];
 }
