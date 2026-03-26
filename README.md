@@ -51,8 +51,8 @@ hardware profile:
 
 ```bash
 gh repo clone yash2k4/nix-dots ~/nix-dots
-rm ~/nix-dots/hosts/nixro/hardware-configuration.nix
-cp /etc/nixos/hardware-configuration.nix ~/nix-dots/hosts/nixro/hardware-configuration.nix
+rm ~/nix-dots/nodes/wrath/hardware-configuration.nix
+cp /etc/nixos/hardware-configuration.nix ~/nix-dots/nodes/wrath/hardware-configuration.nix
 ```
 
 ### 4. Build & Switch
