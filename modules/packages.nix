@@ -61,6 +61,7 @@
     nsxiv
     nwg-look
     obsidian
+    onefetch
     papirus-icon-theme
     pastel
     pavucontrol
