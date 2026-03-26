@@ -1,13 +1,16 @@
-{ inputs, pkgs, lib, ... }:
-let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
 {
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
   programs.spicetify = {
     enable = true;
     theme = lib.mkForce spicePkgs.themes.catppuccin;
     colorScheme = lib.mkForce "mocha";
-    enabledCustomApps = [ spicePkgs.apps.marketplace ];
+    enabledCustomApps = [spicePkgs.apps.marketplace];
     enabledExtensions = with spicePkgs.extensions; [
       autoSkipVideo
       loopyLoop

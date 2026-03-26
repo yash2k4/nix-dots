@@ -195,10 +195,12 @@
           action = "<cmd>bprev<CR>";
           desc = "Previous buffer";
         };
+
         "<Tab>" = {
           action = "<cmd>bnext<CR>";
           desc = "Next buffer";
         };
+
         "<leader>bd" = {
           action = "<cmd>bdelete<CR>";
           desc = "Delete buffer";
@@ -218,14 +220,17 @@
           action = "<cmd>Telescope buffers<CR>";
           desc = "Find buffers";
         };
+
         "<leader>ff" = {
           action = "<cmd>Telescope find_files<CR>";
           desc = "Find files";
         };
+
         "<leader>fg" = {
           action = "<cmd>Telescope live_grep<CR>";
           desc = "Live grep";
         };
+
         "<leader>fh" = {
           action = "<cmd>Telescope help_tags<CR>";
           desc = "Help tags";
@@ -235,6 +240,7 @@
           action = "<cmd>lua vim.lsp.buf.definition()<CR>";
           desc = "Go to definition";
         };
+
         "gr" = {
           action = "<cmd>lua vim.lsp.buf.references()<CR>";
           desc = "Go to references";
@@ -254,14 +260,17 @@
           action = "<C-w>h";
           desc = "Move to left window";
         };
+
         "<C-j>" = {
           action = "<C-w>j";
           desc = "Move to lower window";
         };
+
         "<C-k>" = {
           action = "<C-w>k";
           desc = "Move to upper window";
         };
+
         "<C-l>" = {
           action = "<C-w>l";
           desc = "Move to right window";
@@ -276,6 +285,7 @@
           action = "<cmd>split<CR>";
           desc = "Horizontal split";
         };
+
         "<leader>sv" = {
           action = "<cmd>vsplit<CR>";
           desc = "Vertical split";
@@ -290,8 +300,12 @@
       notify.nvim-notify.enable = true;
 
       options = {
+        autoindent = true;
+        smartindent = true;
         clipboard = "unnamedplus";
         expandtab = true;
+        ignorecase = true;
+        smartcase = true;
         number = true;
         relativenumber = true;
         scrolloff = 8;
