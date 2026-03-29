@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  imports = [../packages.nix];
-
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;

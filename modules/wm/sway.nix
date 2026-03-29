@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  imports = [../packages.nix];
-
   programs.sway = {
     enable = true;
     package = pkgs.swayfx;

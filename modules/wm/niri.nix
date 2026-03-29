@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  imports = [../packages.nix];
-
   programs.niri.enable = true;
   xdg.portal = {
     enable = true;
