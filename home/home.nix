@@ -5,7 +5,7 @@
     ./dents/nix-search.nix
     ./dents/nvf.nix
     ./dents/noctalia.nix
-    ./dents/shell.nix
+    ./dents/sh.nix
     ./dents/spicetify.nix
     ./dents/vesktop.nix
   ];
