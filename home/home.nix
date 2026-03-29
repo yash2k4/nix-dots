@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}: {
+{...}: {
   imports = [
     ./dotfiles.nix
     ./dents/git.nix
@@ -15,7 +9,6 @@
     ./dents/spicetify.nix
     ./dents/vesktop.nix
   ];
-
   home = {
     username = "yash2k4";
     homeDirectory = "/home/yash2k4";
