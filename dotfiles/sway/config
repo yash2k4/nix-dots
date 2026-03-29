@@ -46,7 +46,7 @@ floating_modifier $mod
 exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always swaybg -i ~/Pictures/walls/nixppuccin.jpg -m fill
-exec_always autotiling
+exec_always autotiling-rs
 exec_always --no-startup-id noctalia-shell
 
 exec_always --no-startup-id sh -c 'pkill -x swayidle; swayidle -w \
