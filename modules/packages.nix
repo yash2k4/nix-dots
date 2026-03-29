@@ -53,7 +53,7 @@
     microfetch
     mpv
     ncdu
-    nemo
+    nemo-with-extensions
     nerdfetch
     neovim
     nitch
