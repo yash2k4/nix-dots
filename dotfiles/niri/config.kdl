@@ -22,8 +22,8 @@ workspace "10"
 
 input {
     keyboard {
-        repeat-rate 50
         repeat-delay 300
+        repeat-rate 50
         xkb {}
         numlock
     }
@@ -39,30 +39,52 @@ input {
 layout {
     gaps 8
     center-focused-column "never"
+
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
     }
+
     default-column-width { proportion 0.5; }
+
     focus-ring {
         width 2
         active-color "#cba6f7"
         inactive-color "#313244"
     }
+
     border {
         width 2
         active-color "#cba6f7"
         inactive-color "#313244"
         urgent-color "#f38ba8"
     }
+
     shadow {
         on
         softness 30
         spread 5
         color "#00000088"
     }
+
     struts {}
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+    opacity 1.0
+}
+
+window-rule {
+    match is-focused=false
+    opacity 0.95
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
 }
 
 spawn-at-startup "xwayland-satellite"
@@ -84,44 +106,41 @@ animations {
         duration-ms 350
         curve "ease-out-expo"
     }
+
     window-close {
         duration-ms 250
         curve "ease-out-quad"
     }
+
     window-movement {
         duration-ms 350
         curve "ease-out-expo"
     }
+
     window-resize {
         duration-ms 350
         curve "ease-out-expo"
     }
+
     horizontal-view-movement {
         duration-ms 350
         curve "ease-out-expo"
     }
+
     config-notification-open-close {
         duration-ms 300
         curve "ease-out-expo"
     }
+
     screenshot-ui-open {
         duration-ms 300
         curve "ease-out-expo"
     }
+
     overview-open-close {
         duration-ms 400
         curve "ease-out-expo"
     }
-}
-
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
 }
 
 binds {

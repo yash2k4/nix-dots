@@ -80,8 +80,6 @@ bindsym $mod+Shift+Escape exec noctalia-shell ipc call lockScreen lock
 bindsym $mod+Shift+i exec $term --title wifi_tui -e nmtui
 bindsym $mod+Shift+b exec $term --title bluetui_tui -e bluetui
 
-for_window [title="wifi_tui"] floating enable, resize set 900 600, move position center
-for_window [title="bluetui_tui"] floating enable, resize set 900 600, move position center
 
 bindsym Print exec sh -c 'killall -q slurp grim; grim -g "$(slurp)" - | wl-copy'
 bindsym Shift+Print exec sh -c 'killall -q slurp grim; mkdir -p "$HOME/Pictures/Screenshots"; grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"'
@@ -160,8 +158,6 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-
-for_window [app_id="noctalia-shell"] floating enable, border none
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+c restart
