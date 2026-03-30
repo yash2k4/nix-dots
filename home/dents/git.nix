@@ -9,7 +9,7 @@
     settings = {
       user = {
         name = "yash2k4";
-        email = "yash2k4@users.noreply.github.com";
+        email = "yash2k4@users.noreply.git.com";
       };
 
       init.defaultBranch = "main";

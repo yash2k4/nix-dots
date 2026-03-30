@@ -146,6 +146,7 @@ animations {
 binds {
     Mod+Return { spawn "foot"; }
     Mod+Space { spawn "fuzzel"; }
+    Mod+Ctrl+Space { spawn-sh "rofimoji --selector fuzzel"; }
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }
     Mod+Alt+L { spawn-sh "noctalia-shell ipc call lockScreen lock"; }

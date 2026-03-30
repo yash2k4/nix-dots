@@ -72,6 +72,7 @@
     python314Packages.pip
     postman
     ripgrep
+    rofimoji
     ruby
     rust-analyzer
     rustup
