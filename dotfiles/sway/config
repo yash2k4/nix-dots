@@ -10,22 +10,11 @@ seat seat0 xcursor_theme Bibata-Modern-Ice 32
 exec_always export XCURSOR_SIZE=32
 exec_always export XCURSOR_THEME=Bibata-Modern-Ice
 
-gaps inner 3
-gaps outer 3
-default_border pixel 3
-default_floating_border pixel 3
 
-corner_radius 18
-smart_corner_radius on
-
-blur enable
-blur_radius 7
-blur_passes 4
-
-shadows enable
-shadow_blur_radius 40
-shadow_color #000000cc
-shadow_offset 0 10
+gaps inner 5
+gaps outer 5
+default_border pixel 2
+default_floating_border pixel 2
 
 focus_follows_mouse yes
 
@@ -41,6 +30,7 @@ client.unfocused        $overlay0  $base     $text      $rosewater  $overlay0
 client.urgent           #f38ba8    $base     #f38ba8    $base       #f38ba8
 client.background       $base
 
+
 floating_modifier $mod
 
 exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
@@ -54,6 +44,7 @@ timeout 300 "noctalia-shell ipc call lockScreen lock" \
 timeout 600 "swaymsg output * dpms off" \
 resume "swaymsg output * dpms on" \
 before-sleep "noctalia-shell ipc call lockScreen lock"'
+
 
 input * {
     xkb_layout us
@@ -71,29 +62,30 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+
 bindsym $mod+Return exec $term
 bindsym $mod+space exec $menu
+bindsym $mod+Ctrl+space exec rofimoji --selector fuzzel
 bindsym $mod+n exec $fm
 bindsym $mod+b exec $browser
 bindsym $mod+Shift+Escape exec noctalia-shell ipc call lockScreen lock
 
-bindsym $mod+Shift+i exec $term --title wifi_tui -e nmtui
-bindsym $mod+Shift+b exec $term --title bluetui_tui -e bluetui
+bindsym Print exec flameshot gui
 
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86MonBrightnessUp exec brightnessctl --class=backlight set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl --class=backlight set 5%-
 
-bindsym Print exec sh -c 'killall -q slurp grim; grim -g "$(slurp)" - | wl-copy'
-bindsym Shift+Print exec sh -c 'killall -q slurp grim; mkdir -p "$HOME/Pictures/Screenshots"; grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"'
-
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec sh -c 'brightnessctl set 5%-; if [ $(brightnessctl get) -lt $(($(brightnessctl max) / 100)) ]; then brightnessctl set 1%; fi'
 
 bindsym $mod+q kill
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
@@ -125,6 +117,7 @@ bindsym Mod1+Shift+h resize shrink width 20 px
 bindsym Mod1+Shift+j resize grow height 20 px
 bindsym Mod1+Shift+k resize shrink height 20 px
 bindsym Mod1+Shift+l resize grow width 20 px
+
 
 set $ws1  "1"
 set $ws2  "2"
@@ -158,6 +151,7 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+c restart

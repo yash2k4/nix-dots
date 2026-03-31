@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.sway = {
     enable = true;
-    package = pkgs.swayfx;
+    package = pkgs.sway;
     wrapperFeatures.gtk = true;
   };
 
@@ -15,6 +15,5 @@
   environment.systemPackages = with pkgs; [
     autotiling-rs
     swayidle
-    swaylock-effects
   ];
 }

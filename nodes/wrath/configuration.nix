@@ -6,7 +6,7 @@
     ../../modules/services.nix
     ../../modules/stylix.nix
     ../../modules/zram.nix
-    ../../modules/wm/niri.nix
+    ../../modules/wm/sway.nix
   ];
 
   boot.loader = {

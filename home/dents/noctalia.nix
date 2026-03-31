@@ -43,7 +43,7 @@
       bar = {
         autoHideDelay = 500;
         autoShowDelay = 150;
-        backgroundOpacity = 0.93;
+        backgroundOpacity = 0;
         barType = "simple";
         capsuleColorKey = "none";
         capsuleOpacity = 1;
@@ -56,12 +56,12 @@
         marginHorizontal = 4;
         marginVertical = 4;
         monitors = [];
-        outerCorners = true;
+        outerCorners = false;
         position = "top";
         screenOverrides = [];
         showCapsule = false;
         showOutline = false;
-        useSeparateOpacity = false;
+        useSeparateOpacity = true;
         widgets = {
           center = [
             {
