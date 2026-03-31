@@ -12,6 +12,7 @@
     cointop
     cowsay
     direnv
+    docker-buildx
     docker-compose
     docker-language-server
     dysk
@@ -19,6 +20,7 @@
     fastfetch
     fd
     figlet
+    firefox
     flameshot
     foot
     fortune
@@ -39,6 +41,8 @@
     kdePackages.kate
     kotlin
     kubectl
+    kubernetes
+    kubernetes-helm
     lazydocker
     lazygit
     lazyjj
@@ -80,6 +84,7 @@
     speedtest-cli
     swayidle
     tealdeer
+    tmux
     tree
     tty-clock
     typescript
