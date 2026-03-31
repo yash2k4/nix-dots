@@ -78,6 +78,7 @@
     rustup
     sl
     speedtest-cli
+    swayidle
     tealdeer
     tree
     tty-clock
@@ -89,6 +90,7 @@
     vscode
     wget
     wl-clipboard
+    xwayland-satellite
     yazi
     zathura
     zoxide

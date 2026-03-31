@@ -59,7 +59,7 @@
         outerCorners = false;
         position = "top";
         screenOverrides = [];
-        showCapsule = false;
+        showCapsule = true;
         showOutline = false;
         useSeparateOpacity = true;
         widgets = {

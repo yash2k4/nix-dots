@@ -5,8 +5,6 @@
     ../../modules/nvidia.nix
     ../../modules/services.nix
     ../../modules/stylix.nix
-    ../../modules/zram.nix
-    ../../modules/wm/sway.nix
   ];
 
   boot.loader = {
@@ -39,12 +37,12 @@
 
   programs = {
     firefox.enable = true;
+    niri.enable = true;
     zsh.enable = true;
   };
 
   services.greetd = {
     enable = true;
-
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time";
@@ -53,13 +51,14 @@
     };
   };
 
+  system.stateVersion = "25.11";
+
+  time.timeZone = "Asia/Kolkata";
+
   users.users.yash2k4 = {
     description = "yash2k4";
-
     isNormalUser = true;
-
     shell = pkgs.zsh;
-
     extraGroups = [
       "docker"
       "libvirtd"
@@ -68,7 +67,12 @@
     ];
   };
 
-  system.stateVersion = "25.11";
+  xdg.portal.enable = true;
 
-  time.timeZone = "Asia/Kolkata";
+  zramSwap = {
+    enable = true;
+    priority = 100;
+    algorithm = "lz4";
+    memoryPercent = 50;
+  };
 }
