@@ -4,7 +4,7 @@ set $browser firefox
 set $fm nemo
 set $menu fuzzel
 
-font pango:JetBrainsMono Nerd Font Propo Bold 15
+font pango:JetBrainsMono Nerd Font Bold 15
 
 seat seat0 xcursor_theme Bibata-Modern-Ice 32
 exec_always export XCURSOR_SIZE=32
@@ -34,8 +34,6 @@ client.background       $base
 floating_modifier $mod
 
 exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always swaybg -i ~/Pictures/walls/nixppuccin.jpg -m fill
 exec_always autotiling-rs
 exec_always --no-startup-id noctalia-shell
 
@@ -155,4 +153,4 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+c restart
-bindsym $mod+Shift+m exec swaynag -t warning -m "Exit Sway?" -b "Yes" "swaymsg exit"
+bindsym $mod+Shift+m exec swaynag -t warning -m "exit sway?" -b "yes" "swaymsg exit"
