@@ -1,11 +1,6 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   programs.git = {
     enable = true;
-
     settings = {
       user = {
         name = "yash2k4";
@@ -14,13 +9,15 @@
 
       init.defaultBranch = "main";
       core.editor = "nvim";
+      core.autocrlf = "input";
+
       pull.rebase = true;
       rebase.autoStash = true;
-      color.ui = "auto";
-      core.autocrlf = "input";
       fetch.prune = true;
       push.autoSetupRemote = true;
       rerere.enabled = true;
+
+      color.ui = "auto";
       diff.colorMoved = "default";
       merge.conflictstyle = "zdiff3";
     };
