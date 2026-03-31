@@ -56,7 +56,7 @@
         marginHorizontal = 4;
         marginVertical = 4;
         monitors = [];
-        outerCorners = false;
+        outerCorners = true;
         position = "top";
         screenOverrides = [];
         showCapsule = true;
