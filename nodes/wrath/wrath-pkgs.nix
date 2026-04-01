@@ -50,7 +50,6 @@
     libqalculate
     libreoffice
     localsend
-    lsd
     man-db
     man-pages
     maven
