@@ -9,6 +9,7 @@ hotkey-overlay {
     skip-at-startup
 }
 
+
 workspace "1"
 workspace "2"
 workspace "3"
@@ -20,6 +21,7 @@ workspace "8"
 workspace "9"
 workspace "10"
 
+
 input {
     keyboard {
         repeat-delay 300
@@ -27,17 +29,22 @@ input {
         xkb {}
         numlock
     }
+
     touchpad {
         tap
         natural-scroll
     }
+
     mouse {}
     trackpoint {}
+
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+
 layout {
-    gaps 8
+    gaps 12
+
     center-focused-column "never"
 
     preset-column-widths {
@@ -50,29 +57,30 @@ layout {
 
     focus-ring {
         width 2
-        active-color "#cba6f7"
-        inactive-color "#313244"
+        active-color "#cba6f7cc"
+        inactive-color "#45475a55"
     }
 
     border {
-        width 2
-        active-color "#cba6f7"
-        inactive-color "#313244"
-        urgent-color "#f38ba8"
+        width 1
+        active-color "#cba6f766"
+        inactive-color "#45475a33"
+        urgent-color "#f38ba899"
     }
 
     shadow {
         on
-        softness 30
-        spread 5
-        color "#00000088"
+        softness 60
+        spread -2
+        color "#1e1e2e99"
     }
 
     struts {}
 }
 
+
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 18
     clip-to-geometry true
     opacity 1.0
 }
@@ -83,9 +91,10 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    match is-focused=true
+    opacity 1.0
 }
+
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
@@ -97,51 +106,53 @@ switch-events {
     }
 }
 
+
 animations {
-    slowdown 0.8
+    slowdown 0.65
 
     workspace-switch { off; }
 
     window-open {
-        duration-ms 350
+        duration-ms 500
         curve "ease-out-expo"
     }
 
     window-close {
-        duration-ms 250
-        curve "ease-out-quad"
+        duration-ms 280
+        curve "ease-out-expo"
     }
 
     window-movement {
-        duration-ms 350
+        duration-ms 450
         curve "ease-out-expo"
     }
 
     window-resize {
-        duration-ms 350
+        duration-ms 450
         curve "ease-out-expo"
     }
 
     horizontal-view-movement {
-        duration-ms 350
+        duration-ms 480
         curve "ease-out-expo"
     }
 
     config-notification-open-close {
-        duration-ms 300
+        duration-ms 400
         curve "ease-out-expo"
     }
 
     screenshot-ui-open {
-        duration-ms 300
+        duration-ms 380
         curve "ease-out-expo"
     }
 
     overview-open-close {
-        duration-ms 400
+        duration-ms 550
         curve "ease-out-expo"
     }
 }
+
 
 binds {
     Mod+Return { spawn "foot"; }
@@ -149,7 +160,7 @@ binds {
     Mod+Ctrl+Space { spawn-sh "rofimoji --selector fuzzel"; }
     Mod+N { spawn "nemo"; }
     Mod+B { spawn "firefox"; }
-    Mod+Alt+L { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+    Mod+Shift+Escape { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
