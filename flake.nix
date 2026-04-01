@@ -48,7 +48,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        ./nodes/wrath/configuration.nix
+        ./hosts/wrath/configuration.nix
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {

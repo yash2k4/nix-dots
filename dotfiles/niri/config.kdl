@@ -155,7 +155,7 @@ animations {
 
 
 binds {
-    Mod+Return { spawn "foot"; }
+    Mod+Return { spawn "wezterm"; }
     Mod+Space { spawn "fuzzel"; }
     Mod+Ctrl+Space { spawn-sh "rofimoji --selector fuzzel"; }
     Mod+N { spawn "nemo"; }

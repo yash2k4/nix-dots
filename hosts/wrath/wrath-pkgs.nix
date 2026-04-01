@@ -22,7 +22,6 @@
     figlet
     firefox
     flameshot
-    foot
     fortune
     fuzzel
     fzf
@@ -92,6 +91,7 @@
     unzip
     uwufetch
     vscode
+    wezterm
     wget
     wl-clipboard
     xwayland-satellite

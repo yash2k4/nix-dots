@@ -1,13 +1,13 @@
 {...}: {
   imports = [
     ./dotfiles.nix
-    ./dents/git.nix
-    ./dents/nix-search.nix
-    ./dents/nvf.nix
-    ./dents/noctalia.nix
-    ./dents/sh.nix
-    ./dents/spicetify.nix
-    ./dents/vesktop.nix
+    ./programs/git.nix
+    ./programs/nix-search.nix
+    ./programs/nvf.nix
+    ./programs/noctalia.nix
+    ./programs/sh.nix
+    ./programs/spicetify.nix
+    ./programs/vesktop.nix
   ];
   home = {
     username = "yash2k4";
