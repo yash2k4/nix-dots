@@ -29,7 +29,6 @@
         useApp2Unit = false;
         viewMode = "list";
       };
-
       audio = {
         cavaFrameRate = 60;
         mprisBlacklist = [];
@@ -39,7 +38,6 @@
         volumeOverdrive = false;
         volumeStep = 5;
       };
-
       bar = {
         autoHideDelay = 500;
         autoShowDelay = 150;
@@ -187,13 +185,11 @@
           ];
         };
       };
-
       brightness = {
         brightnessStep = 5;
         enableDdcSupport = false;
         enforceMinimum = true;
       };
-
       calendar = {
         cards = [
           {
@@ -210,7 +206,6 @@
           }
         ];
       };
-
       colorSchemes = {
         darkMode = true;
         generationMethod = "tonal-spot";
@@ -221,7 +216,6 @@
         schedulingMode = "off";
         useWallpaperColors = false;
       };
-
       controlCenter = {
         cards = [
           {
@@ -266,13 +260,11 @@
           ];
         };
       };
-
       desktopWidgets = {
         enabled = false;
         gridSnap = false;
         monitorWidgets = [];
       };
-
       dock = {
         animationSpeed = 1;
         backgroundOpacity = 1;
@@ -292,7 +284,6 @@
         sitOnFrame = false;
         size = 1;
       };
-
       general = {
         allowPanelsOnScreenWithoutBar = true;
         allowPasswordWithFprintd = false;
@@ -338,7 +329,6 @@
         showSessionButtonsOnLockScreen = true;
         telemetryEnabled = false;
       };
-
       hooks = {
         darkModeChange = "";
         enabled = false;
@@ -350,7 +340,6 @@
         startup = "";
         wallpaperChange = "";
       };
-
       location = {
         analogClockInCalendar = false;
         firstDayOfWeek = 0;
@@ -365,7 +354,6 @@
         weatherEnabled = true;
         weatherShowEffects = true;
       };
-
       network = {
         airplaneModeEnabled = false;
         bluetoothDetailsViewMode = "grid";
@@ -376,7 +364,6 @@
         wifiDetailsViewMode = "grid";
         wifiEnabled = true;
       };
-
       nightLight = {
         autoSchedule = true;
         dayTemp = "6500";
@@ -386,7 +373,6 @@
         manualSunset = "18:30";
         nightTemp = "4000";
       };
-
       notifications = {
         backgroundOpacity = 1;
         clearDismissed = true;
@@ -418,7 +404,6 @@
           volume = 0.5;
         };
       };
-
       osd = {
         autoHideMs = 2000;
         backgroundOpacity = 1;
@@ -428,11 +413,9 @@
         monitors = [];
         overlayLayer = true;
       };
-
       plugins = {
         autoUpdate = false;
       };
-
       sessionMenu = {
         countdownDuration = 5000;
         enableCountdown = true;
@@ -493,9 +476,7 @@
         showHeader = true;
         showKeybinds = true;
       };
-
       settingsVersion = 53;
-
       systemMonitor = {
         batteryCriticalThreshold = 5;
         batteryWarningThreshold = 20;
@@ -519,12 +500,10 @@
         useCustomColors = false;
         warningColor = "";
       };
-
       templates = {
         activeTemplates = [];
         enableUserTheming = false;
       };
-
       ui = {
         bluetoothDetailsViewMode = "grid";
         bluetoothHideUnnamedDevices = false;
@@ -540,7 +519,6 @@
         tooltipsEnabled = true;
         wifiDetailsViewMode = "grid";
       };
-
       wallpaper = {
         automationEnabled = true;
         directory = "/home/yash2k4/Pictures/walls";

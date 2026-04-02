@@ -5,7 +5,6 @@
 }: {
   programs.nvf = {
     enable = true;
-
     settings.vim = {
       autocomplete.nvim-cmp = {
         enable = true;
@@ -73,106 +72,87 @@
           enable = true;
           lsp.enable = true;
         };
-
         clang = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["clangd"];
         };
-
         css = {
           enable = true;
           lsp.enable = true;
         };
-
         go = {
           enable = true;
           lsp.enable = true;
         };
-
         html = {
           enable = true;
           lsp.enable = true;
         };
-
         java = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["jdtls"];
         };
-
         json = {
           enable = true;
           lsp.enable = true;
         };
-
         lua = {
           enable = true;
           lsp.enable = true;
         };
-
         markdown = {
           enable = true;
           lsp.enable = true;
         };
-
         nix = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["nil"];
         };
-
         php = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["intelephense"];
         };
-
         python = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["pyright"];
         };
-
         ruby = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["solargraph"];
         };
-
         rust = {
           enable = true;
           extensions.crates-nvim.enable = true;
           lsp.enable = true;
         };
-
         sql = {
           enable = true;
           lsp.enable = true;
           lsp.servers = ["sqls"];
         };
-
         terraform = {
           enable = true;
           lsp.enable = true;
         };
-
         ts = {
           enable = true;
           lsp.enable = true;
           extensions.ts-error-translator.enable = true;
         };
-
         typst = {
           enable = true;
           lsp.enable = true;
         };
-
         yaml = {
           enable = true;
           lsp.enable = true;
         };
-
         zig = {
           enable = true;
           lsp.enable = true;
@@ -195,102 +175,82 @@
           action = "<cmd>bprev<CR>";
           desc = "Previous buffer";
         };
-
         "<Tab>" = {
           action = "<cmd>bnext<CR>";
           desc = "Next buffer";
         };
-
         "<leader>bd" = {
           action = "<cmd>bdelete<CR>";
           desc = "Delete buffer";
         };
-
         "<leader>ca" = {
           action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
           desc = "Code action";
         };
-
         "<leader>e" = {
           action = "<cmd>Neotree toggle<CR>";
           desc = "Toggle file tree";
         };
-
         "<leader>fb" = {
           action = "<cmd>Telescope buffers<CR>";
           desc = "Find buffers";
         };
-
         "<leader>ff" = {
           action = "<cmd>Telescope find_files<CR>";
           desc = "Find files";
         };
-
         "<leader>fg" = {
           action = "<cmd>Telescope live_grep<CR>";
           desc = "Live grep";
         };
-
         "<leader>fh" = {
           action = "<cmd>Telescope help_tags<CR>";
           desc = "Help tags";
         };
-
         "gd" = {
           action = "<cmd>lua vim.lsp.buf.definition()<CR>";
           desc = "Go to definition";
         };
-
         "gr" = {
           action = "<cmd>lua vim.lsp.buf.references()<CR>";
           desc = "Go to references";
         };
-
         "K" = {
           action = "<cmd>lua vim.lsp.buf.hover()<CR>";
           desc = "Hover docs";
         };
-
         "<leader>ld" = {
           action = "<cmd>Trouble diagnostics toggle<CR>";
           desc = "Toggle diagnostics";
         };
-
         "<C-h>" = {
           action = "<C-w>h";
           desc = "Move to left window";
         };
-
         "<C-j>" = {
           action = "<C-w>j";
           desc = "Move to lower window";
         };
-
         "<C-k>" = {
           action = "<C-w>k";
           desc = "Move to upper window";
         };
-
         "<C-l>" = {
           action = "<C-w>l";
           desc = "Move to right window";
         };
-
         "<leader>rn" = {
           action = "<cmd>lua vim.lsp.buf.rename()<CR>";
           desc = "Rename symbol";
         };
-
         "<leader>sh" = {
           action = "<cmd>split<CR>";
           desc = "Horizontal split";
         };
-
         "<leader>sv" = {
           action = "<cmd>vsplit<CR>";
           desc = "Vertical split";
         };
-
         "<leader>tt" = {
           action = "<cmd>ToggleTerm<CR>";
           desc = "Toggle terminal";

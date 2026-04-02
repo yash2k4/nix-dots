@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   stylix = {
     enable = true;
+
     base16Scheme = {
       base00 = "1e1e2e";
       base01 = "181825";
@@ -19,7 +20,9 @@
       base0E = "cba6f7";
       base0F = "f2cdcd";
     };
+
     polarity = "dark";
+
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -40,6 +43,7 @@
         popups = 14;
       };
     };
+
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";

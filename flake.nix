@@ -47,7 +47,6 @@
     nixosConfigurations.wrath = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
-
       modules = [
         ./systems/wrath/configuration.nix
         stylix.nixosModules.stylix
@@ -58,7 +57,6 @@
             extraSpecialArgs = {inherit inputs;};
             useGlobalPkgs = true;
             useUserPackages = true;
-
             users.yash2k4 = {
               imports = [
                 ./systems/wrath/home.nix

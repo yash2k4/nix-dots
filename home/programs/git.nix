@@ -8,16 +8,16 @@
       };
 
       init.defaultBranch = "main";
+
       core.editor = "nvim";
-      core.autocrlf = "input";
 
       pull.rebase = true;
       rebase.autoStash = true;
       fetch.prune = true;
       push.autoSetupRemote = true;
+
       rerere.enabled = true;
 
-      color.ui = "auto";
       diff.colorMoved = "default";
       merge.conflictstyle = "zdiff3";
     };

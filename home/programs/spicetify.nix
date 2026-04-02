@@ -8,9 +8,14 @@
 in {
   programs.spicetify = {
     enable = true;
+
     theme = lib.mkForce spicePkgs.themes.catppuccin;
     colorScheme = lib.mkForce "mocha";
-    enabledCustomApps = [spicePkgs.apps.marketplace];
+
+    enabledCustomApps = [
+      spicePkgs.apps.marketplace
+    ];
+
     enabledExtensions = with spicePkgs.extensions; [
       autoSkipVideo
       loopyLoop
@@ -23,6 +28,7 @@ in {
       volumePercentage
       simpleBeautifulLyrics
     ];
+
     enabledSnippets = with spicePkgs.snippets; [
       fixDjIcon
       fixLikedIcon

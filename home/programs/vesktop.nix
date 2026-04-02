@@ -1,5 +1,6 @@
 {
   stylix.targets.vesktop.enable = false;
+
   programs.vesktop.enable = true;
 
   xdg.configFile."vesktop/settings.json" = {
@@ -7,12 +8,15 @@
       discordBranch = "stable";
       minimizeToTray = true;
       arRPC = true;
+
       audio = {
         audioGainControl = false;
       };
+
       splashColor = "rgb(220, 220, 223)";
       splashBackground = "rgb(30, 30, 46)";
     };
+
     force = true;
   };
 
@@ -21,6 +25,7 @@
       themeLinks = [
         "https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css"
       ];
+
       plugins = {
         AlwaysAnimate = {enabled = true;};
         AlwaysTrust = {enabled = true;};
@@ -40,6 +45,7 @@
         WebScreenShareFixes = {enabled = true;};
       };
     };
+
     force = true;
   };
 }

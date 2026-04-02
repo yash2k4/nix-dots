@@ -10,11 +10,8 @@
       "nvidia_modeset"
       "nvidia_uvm"
     ];
-
     kernelModules = ["acpi_call"];
-
     kernelPackages = pkgs.linuxPackages_latest;
-
     kernelParams = [
       "nvidia-drm.modeset=1"
       "nvidia-drm.fbdev=1"

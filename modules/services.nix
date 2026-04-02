@@ -14,7 +14,9 @@
       ];
     };
   };
+
   security.polkit.enable = true;
+
   services = {
     acpid.enable = true;
     avahi.enable = true;
@@ -51,10 +53,12 @@
     thermald.enable = true;
     upower.enable = true;
   };
+
   programs = {
     gnupg.agent.enable = true;
     virt-manager.enable = true;
   };
+
   virtualisation = {
     docker = {
       enable = true;
