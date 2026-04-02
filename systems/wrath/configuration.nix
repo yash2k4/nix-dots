@@ -50,8 +50,6 @@
     };
   };
 
-  system.stateVersion = "25.11";
-
   time.timeZone = "Asia/Kolkata";
 
   users.users.yash2k4 = {
@@ -74,4 +72,6 @@
     algorithm = "lz4";
     memoryPercent = 50;
   };
+
+  system.stateVersion = "25.11";
 }
