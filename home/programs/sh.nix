@@ -9,19 +9,15 @@
 in {
   programs.bash = {
     enable = true;
-
     shellAliases = aliases;
-
     initExtra = ''
-      PS1='[\[\e[38;2;245;194;231m\]\u\[\e[38;2;166;173;200m\]@\[\e[38;2;137;180;250m\]\H\[\e[0m\] \[\e[38;2;249;226;175m\]\W\[\e[0m\]]\[\e[38;2;166;227;161m\]\\$\[\e[0m\] '
+      export PS1='\[\e[38;5;76m\]\u\[\e[0m\] in \[\e[38;5;32m\]\w\[\e[0m\] \\$ '
     '';
   };
 
   programs.zsh = {
     enable = true;
-
     shellAliases = aliases;
-
     initContent = ''
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
