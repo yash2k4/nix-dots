@@ -25,7 +25,7 @@
         showCategories = true;
         showIconBackground = false;
         sortByMostUsed = true;
-        terminalCommand = "foot -e";
+        terminalCommand = "wezterm -e";
         useApp2Unit = false;
         viewMode = "list";
       };
