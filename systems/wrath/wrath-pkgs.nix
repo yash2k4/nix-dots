@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    age
     ani-cli
     asciiquarium
     astroterm
@@ -29,6 +30,7 @@
     gh
     gimp
     glab
+    glow
     go
     gradle
     grim
@@ -37,6 +39,8 @@
     jetbrains.idea-oss
     jq
     jujutsu
+    just
+    k9s
     kdePackages.kate
     kotlin
     kubectl
@@ -52,12 +56,14 @@
     man-db
     man-pages
     maven
+    mdcat
     microfetch
     mpv
     ncdu
     nemo-with-extensions
     nerdfetch
     neovim
+    nil
     nitch
     nodejs
     nsxiv
@@ -65,20 +71,22 @@
     obsidian
     onefetch
     papirus-icon-theme
+    pass
     pastel
     pavucontrol
     pfetch-rs
     php
-    pipes-rs
+    pipes
     python314
     python314Packages.pip
     postman
-    ripgrep
+    ripgrep-all
     rofimoji
     ruby
     rust-analyzer
     rustup
     sl
+    sops
     speedtest-cli
     swayidle
     tealdeer
