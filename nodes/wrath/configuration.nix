@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ./wrath-pkgs.nix
+    ./packages.nix
     ../../modules/nvidia.nix
     ../../modules/services.nix
     ../../modules/stylix.nix

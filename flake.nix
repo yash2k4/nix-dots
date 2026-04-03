@@ -48,7 +48,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        ./systems/wrath/configuration.nix
+        ./nodes/wrath/configuration.nix
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {
@@ -59,7 +59,7 @@
             useUserPackages = true;
             users.yash2k4 = {
               imports = [
-                ./systems/wrath/home.nix
+                ./nodes/wrath/home.nix
                 spicetify-nix.homeManagerModules.default
                 inputs.noctalia.homeModules.default
                 nvf.homeManagerModules.default
