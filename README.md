@@ -46,7 +46,8 @@ gh auth login
 
 ### 3. Clone and Inject Hardware Config
 
-Clone the repo and replace the placeholder hardware config with the one NixOS generated for your machine during installation:
+Clone the repo and replace the placeholder hardware config with the one NixOS
+generated for your machine during installation:
 
 ```bash
 gh repo clone yash2k4/nix-dots ~/nix-dots
@@ -58,7 +59,7 @@ sudo chown -R yash2k4:users .
 ### 4. Build and Switch
 
 ```bash
-sudo nixos-rebuild switch --flake ~/nix-dots#nixro
+sudo nixos-rebuild switch --flake ~/nix-dots#wrath
 reboot
 ```
 
