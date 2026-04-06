@@ -9,10 +9,12 @@ hotkey-overlay {
     skip-at-startup
 }
 
+
 output "eDP-1" {
     mode "1920x1080@144"
     scale 1
 }
+
 
 workspace "1"
 workspace "2"
@@ -24,6 +26,7 @@ workspace "7"
 workspace "8"
 workspace "9"
 workspace "10"
+
 
 input {
     keyboard {
@@ -44,8 +47,9 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+
 layout {
-    gaps 8
+    gaps 16
 
     center-focused-column "never"
 
@@ -58,30 +62,31 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 2
-        active-color "#cba6f7cc"
-        inactive-color "#45475a55"
+        width 4
+        active-color "#cba6f7ff"
+        inactive-color "#6c7086aa"
     }
 
     border {
-        width 1
-        active-color "#cba6f766"
-        inactive-color "#45475a33"
-        urgent-color "#f38ba899"
+        width 2
+        active-color "#cba6f7cc"
+        inactive-color "#585b7066"
+        urgent-color "#f38ba8ff"
     }
 
     shadow {
         on
-        softness 60
-        spread -2
-        color "#1e1e2e99"
+        softness 100
+        spread -8
+        color "#11111bdd"
     }
 
     struts {}
 }
 
+
 window-rule {
-    geometry-corner-radius 18
+    geometry-corner-radius 24
     clip-to-geometry true
     opacity 1.0
 }
@@ -96,9 +101,11 @@ window-rule {
     opacity 1.0
 }
 
+
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'noctalia-shell ipc call lockScreen lock' timeout 600 'niri msg action power-off-monitors' before-sleep 'noctalia-shell ipc call lockScreen lock'"
+
 
 switch-events {
     lid-close {
@@ -106,51 +113,55 @@ switch-events {
     }
 }
 
-animations {
-    slowdown 0.65
 
-    workspace-switch { off; }
+animations {
+    slowdown 0.45
+
+    workspace-switch {
+        off
+    }
 
     window-open {
-        duration-ms 500
+        duration-ms 600
         curve "ease-out-expo"
     }
 
     window-close {
-        duration-ms 280
+        duration-ms 320
         curve "ease-out-expo"
     }
 
     window-movement {
-        duration-ms 450
+        duration-ms 500
         curve "ease-out-expo"
     }
 
     window-resize {
-        duration-ms 450
+        duration-ms 500
         curve "ease-out-expo"
     }
 
     horizontal-view-movement {
-        duration-ms 480
+        duration-ms 540
         curve "ease-out-expo"
     }
 
     config-notification-open-close {
-        duration-ms 400
+        duration-ms 440
         curve "ease-out-expo"
     }
 
     screenshot-ui-open {
-        duration-ms 380
+        duration-ms 400
         curve "ease-out-expo"
     }
 
     overview-open-close {
-        duration-ms 550
+        duration-ms 620
         curve "ease-out-expo"
     }
 }
+
 
 binds {
     Mod+Return { spawn "wezterm"; }
