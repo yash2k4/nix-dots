@@ -2,17 +2,8 @@
   description = "yash2k4's NixOS config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix.url = "github:danth/stylix";
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,42 +18,61 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
-    self,
-    nixpkgs,
     home-manager,
-    stylix,
-    spicetify-nix,
     noctalia,
     noctalia-qs,
+    nixpkgs,
     nvf,
+    self,
+    spicetify-nix,
+    stylix,
     ...
   } @ inputs: {
     nixosConfigurations.wrath = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+
+      specialArgs = {
+        inherit inputs;
+      };
+
       modules = [
         ./nodes/wrath/configuration.nix
-        stylix.nixosModules.stylix
+
         home-manager.nixosModules.home-manager
+
+        stylix.nixosModules.stylix
+
         {
           home-manager = {
             backupFileExtension = "bak";
-            extraSpecialArgs = {inherit inputs;};
+            extraSpecialArgs = {
+              inherit inputs;
+            };
             useGlobalPkgs = true;
             useUserPackages = true;
+
             users.yash2k4 = {
               imports = [
                 ./nodes/wrath/home.nix
-                spicetify-nix.homeManagerModules.default
                 inputs.noctalia.homeModules.default
                 nvf.homeManagerModules.default
+                spicetify-nix.homeManagerModules.default
               ];
             };
           };
