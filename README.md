@@ -1,6 +1,6 @@
 <div align="center">
 
-# ❄️ nix-dots ❄️
+# NixOS dotfiles ❄️
 
 ![NixOS](https://img.shields.io/badge/NixOS-unstable-5277C3?style=for-the-badge&logo=nixos&logoColor=white)
 ![Flakes](https://img.shields.io/badge/Flakes-enabled-5277C3?style=for-the-badge&logo=nixos&logoColor=white)
