@@ -26,19 +26,6 @@ return {
 	hide_mouse_cursor_when_typing = true,
 	scrollback_lines = 10000,
 
-	keys = {
-		{
-			key = "Home",
-			mods = "CTRL|SHIFT",
-			action = wezterm.action.ScrollToTop,
-		},
-		{
-			key = "End",
-			mods = "CTRL|SHIFT",
-			action = wezterm.action.ScrollToBottom,
-		},
-	},
-
 	colors = {
 		foreground = "#cdd6f4",
 		background = "#1e1e2e",
