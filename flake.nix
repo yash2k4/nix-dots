@@ -7,6 +7,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,8 +23,6 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nvf = {
       url = "github:notashelf/nvf";
@@ -35,9 +39,10 @@
 
   outputs = {
     home-manager,
+    nix-flatpak,
+    nixpkgs,
     noctalia,
     noctalia-qs,
-    nixpkgs,
     nvf,
     self,
     spicetify-nix,
@@ -53,6 +58,8 @@
 
       modules = [
         ./nodes/wrath/configuration.nix
+
+        nix-flatpak.nixosModules.nix-flatpak
 
         home-manager.nixosModules.home-manager
 

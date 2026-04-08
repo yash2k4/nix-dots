@@ -6,6 +6,12 @@
     noto-fonts-color-emoji
   ];
 
+  services.flatpak = {
+    packages = [
+      "com.github.tchx84.Flatseal"
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     age
     ani-cli
