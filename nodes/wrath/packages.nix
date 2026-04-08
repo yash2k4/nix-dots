@@ -93,7 +93,7 @@
     python314
     python314Packages.pip
     postman
-    ripgrep-all
+    ripgrep
     rofimoji
     ruby
     rust-analyzer
