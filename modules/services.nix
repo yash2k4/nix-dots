@@ -26,38 +26,36 @@
     acpid.enable = true;
     avahi.enable = true;
     blueman.enable = true;
-
     btrfs.autoScrub = {
       enable = true;
       interval = "monthly";
     };
-
     earlyoom.enable = true;
-
     flatpak = {
       enable = true;
-
       remotes = [
         {
           location = "https://flathub.org/repo/flathub.flatpakrepo";
           name = "flathub";
         }
       ];
-
       update.auto = {
         enable = true;
         onCalendar = "*-*-01 00:00:00";
       };
     };
-
     fwupd.enable = true;
     gvfs.enable = true;
     openssh.enable = true;
+    pipewire = {
+      alsa.enable = true;
+      enable = true;
+      pulse.enable = true;
+    };
     printing.enable = true;
+    pulseaudio.enable = false;
     resolved.enable = true;
-
     thermald.enable = true;
-
     tlp = {
       enable = true;
       settings = {
@@ -77,17 +75,8 @@
         WIFI_PWR_ON_BAT = "on";
       };
     };
-
     upower.enable = true;
-
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-    };
   };
-
-  hardware.pulseaudio.enable = false;
 
   virtualisation = {
     docker = {
