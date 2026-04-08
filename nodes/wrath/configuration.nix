@@ -50,9 +50,11 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [
+      "audio"
       "docker"
       "libvirtd"
       "networkmanager"
+      "video"
       "wheel"
     ];
   };
