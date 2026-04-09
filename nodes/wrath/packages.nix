@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   fonts.packages = with pkgs; [
     lohit-fonts.tamil
-    nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
   ];
