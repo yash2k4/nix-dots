@@ -1,6 +1,6 @@
 {config, ...}: let
   mkOutOfStoreSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
-  configDir = "${config.home.homeDirectory}/nix-dots/dotfiles";
+  configDir = "${config.home.homeDirectory}/nix-dots/dots";
 in {
   home.file = {
     ".config/btop".source = mkOutOfStoreSymlink "${configDir}/btop";

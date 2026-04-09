@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ../../home/dotfiles.nix
+    ../../home/dots.nix
     ../../home/programs/git.nix
     ../../home/programs/nix-search.nix
     ../../home/programs/nvf.nix
