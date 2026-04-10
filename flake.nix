@@ -49,7 +49,7 @@
     stylix,
     ...
   } @ inputs: {
-    nixosConfigurations.wrath = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.satella = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       specialArgs = {
@@ -57,7 +57,7 @@
       };
 
       modules = [
-        ./nodes/wrath/configuration.nix
+        ./hosts/satella/configuration.nix
 
         nix-flatpak.nixosModules.nix-flatpak
 
@@ -76,7 +76,7 @@
 
             users.yash2k4 = {
               imports = [
-                ./nodes/wrath/home.nix
+                ./hosts/satella/home.nix
                 inputs.noctalia.homeModules.default
                 nvf.homeManagerModules.default
                 spicetify-nix.homeManagerModules.default
