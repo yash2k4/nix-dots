@@ -10,7 +10,6 @@
       "nvidia_modeset"
       "nvidia_uvm"
     ];
-    kernelModules = ["acpi_call"];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "nvidia-drm.modeset=1"
@@ -37,19 +36,16 @@
         intel-compute-runtime
       ];
     };
-
     nvidia = {
       modesetting.enable = true;
       nvidiaPersistenced = false;
       nvidiaSettings = true;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-
       powerManagement = {
         enable = true;
         finegrained = true;
       };
-
       prime = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
