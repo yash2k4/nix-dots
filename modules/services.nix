@@ -20,7 +20,10 @@
     virt-manager.enable = true;
   };
 
-  security.polkit.enable = true;
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
 
   services = {
     acpid.enable = true;
