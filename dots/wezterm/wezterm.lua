@@ -23,7 +23,7 @@ return {
 
 	default_cursor_style = "SteadyBlock",
 	cursor_blink_rate = 0,
-	hide_mouse_cursor_when_typing = true,
+	hide_mouse_cursor_when_typing = false,
 	scrollback_lines = 10000,
 
 	colors = {
