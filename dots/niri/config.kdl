@@ -9,7 +9,6 @@ hotkey-overlay {
     skip-at-startup
 }
 
-
 output "eDP-1" {
     mode "1920x1080@144"
     scale 1
@@ -81,6 +80,16 @@ layout {
     struts {}
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+overview {
+    backdrop-color "#00000000"
+}
+
 window-rule {
     geometry-corner-radius 24
     clip-to-geometry true
@@ -96,7 +105,6 @@ window-rule {
     match is-focused=true
     opacity 1.0
 }
-
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
