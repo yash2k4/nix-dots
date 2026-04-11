@@ -13,7 +13,6 @@
 
   environment.systemPackages = with pkgs; [
     age
-    ani-cli
     asciiquarium
     astroterm
     bat
@@ -27,7 +26,6 @@
     direnv
     docker-buildx
     docker-compose
-    docker-language-server
     dysk
     eza
     fastfetch
@@ -47,7 +45,6 @@
     gradle
     grim
     jdk21
-    jdt-language-server
     jetbrains.idea-oss
     jq
     jujutsu
@@ -72,10 +69,8 @@
     microfetch
     mpv
     ncdu
-    nemo-with-extensions
+    nemo
     nerdfetch
-    neovim
-    nil
     nitch
     nodejs
     nsxiv
@@ -95,15 +90,12 @@
     ripgrep
     rofimoji
     ruby
-    rust-analyzer
     rustup
     sl
     sops
-    speedtest-cli
     swayidle
     tealdeer
     tmux
-    tree
     tty-clock
     typescript
     typst
