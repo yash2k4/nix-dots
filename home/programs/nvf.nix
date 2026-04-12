@@ -317,9 +317,6 @@
         surround.enable = true;
       };
 
-      viAlias = true;
-      vimAlias = true;
-
       visuals = {
         cinnamon-nvim.enable = true;
         fidget-nvim.enable = true;
