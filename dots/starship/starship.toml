@@ -1,4 +1,4 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 palette = "catppuccin_mocha"
 
@@ -41,7 +41,6 @@ symbol = " "
 
 [git_status]
 format = "[$all_status$ahead_behind]($style)"
-
 conflicted = "[󰬟 ${count} ](red)"
 ahead = "[󰛃 ${count} ](teal)"
 behind = "[󰛀 ${count} ](peach)"
@@ -55,3 +54,6 @@ deleted = "[󰍵 ${count} ](red)"
 [directory]
 truncation_length = 4
 style = "bold lavender"
+
+[battery]
+disabled = true
