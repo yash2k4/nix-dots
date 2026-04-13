@@ -11,6 +11,7 @@ in {
     ".config/lazygit".source = mkOutOfStoreSymlink "${configDir}/lazygit";
     ".config/niri".source = mkOutOfStoreSymlink "${configDir}/niri";
     ".config/scripts".source = mkOutOfStoreSymlink "${configDir}/scripts";
+    ".config/starship.toml".source = mkOutOfStoreSymlink "${configDir}/starship/starship.toml";
     ".config/wezterm".source = mkOutOfStoreSymlink "${configDir}/wezterm";
     ".config/yazi".source = mkOutOfStoreSymlink "${configDir}/yazi";
     ".config/zathura".source = mkOutOfStoreSymlink "${configDir}/zathura";

@@ -93,6 +93,7 @@
     rustup
     sl
     sops
+    starship
     swayidle
     tealdeer
     tmux
