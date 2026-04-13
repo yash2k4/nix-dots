@@ -3,7 +3,6 @@
     ../../home/dots.nix
     ../../home/programs/git.nix
     ../../home/programs/nix-search.nix
-    ../../home/programs/nvf.nix
     ../../home/programs/noctalia.nix
     ../../home/programs/sh.nix
     ../../home/programs/spicetify.nix

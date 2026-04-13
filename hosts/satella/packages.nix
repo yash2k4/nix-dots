@@ -70,6 +70,7 @@
     mpv
     ncdu
     nemo
+    neovim
     nerdfetch
     nitch
     nodejs
