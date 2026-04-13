@@ -18,6 +18,7 @@
     bat
     brightnessctl
     btop
+    calibre
     cava
     cargo-seek
     cbonsai
