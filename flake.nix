@@ -24,11 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,7 +38,6 @@
     nixpkgs,
     noctalia,
     noctalia-qs,
-    nvf,
     self,
     spicetify-nix,
     stylix,
@@ -58,19 +52,17 @@
 
       modules = [
         ./hosts/satella/configuration.nix
-
         nix-flatpak.nixosModules.nix-flatpak
-
         home-manager.nixosModules.home-manager
-
         stylix.nixosModules.stylix
-
         {
           home-manager = {
             backupFileExtension = "bak";
+
             extraSpecialArgs = {
               inherit inputs;
             };
+
             useGlobalPkgs = true;
             useUserPackages = true;
 
@@ -78,7 +70,6 @@
               imports = [
                 ./hosts/satella/home.nix
                 inputs.noctalia.homeModules.default
-                nvf.homeManagerModules.default
                 spicetify-nix.homeManagerModules.default
               ];
             };
