@@ -42,6 +42,7 @@
     gimp
     glab
     glow
+    gnumake
     go
     gradle
     grim
