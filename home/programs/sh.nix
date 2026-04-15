@@ -3,9 +3,9 @@ let
     la = "eza -a --icons --group-directories-first --git";
     ll = "eza -la --icons --group-directories-first --git";
     ls = "eza --icons --group-directories-first";
+    satella = "sudo nixos-rebuild switch --flake ~/nix-dots#satella";
     tree = "eza --tree --icons";
     vim = "nvim";
-    satella = "sudo nixos-rebuild switch --flake ~/nix-dots#satella";
   };
 in {
   programs.bash = {
