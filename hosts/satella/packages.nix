@@ -89,6 +89,7 @@
     pipes
     python314
     python314Packages.pip
+    python314Packages.uv
     postman
     ripgrep
     rofimoji
