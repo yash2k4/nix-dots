@@ -51,15 +51,15 @@ generated for your machine during installation:
 
 ```bash
 gh repo clone yash2k4/nix-dots ~/nix-dots
-rm ~/nix-dots/nodes/wrath/hardware-configuration.nix
-sudo cp /etc/nixos/hardware-configuration.nix ~/nix-dots/nodes/wrath/hardware-configuration.nix
+rm ~/nix-dots/hosts/satella/hardware-configuration.nix
+sudo cp /etc/nixos/hardware-configuration.nix ~/nix-dots/hosts/satella/hardware-configuration.nix
 sudo chown -R yash2k4:users .
 ```
 
 ### 4. Build and Switch
 
 ```bash
-sudo nixos-rebuild switch --flake ~/nix-dots#wrath
+sudo nixos-rebuild switch --flake ~/nix-dots#satella
 reboot
 ```
 
