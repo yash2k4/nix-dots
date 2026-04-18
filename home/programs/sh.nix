@@ -1,6 +1,6 @@
 let
   aliases = {
-    la = "eza -a --icons --group-directories-first --git";
+    la = "eza -a --icons --group-directories-first";
     ll = "eza -la --icons --group-directories-first --git";
     ls = "eza --icons --group-directories-first";
     satella = "sudo nixos-rebuild switch --flake ~/nix-dots#satella";
