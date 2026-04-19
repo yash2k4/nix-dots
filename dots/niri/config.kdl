@@ -117,51 +117,7 @@ switch-events {
 }
 
 animations {
-    slowdown 0.45
-
-    workspace-switch {
-        off
-    }
-
-    window-open {
-        duration-ms 600
-        curve "ease-out-expo"
-    }
-
-    window-close {
-        duration-ms 320
-        curve "ease-out-expo"
-    }
-
-    window-movement {
-        duration-ms 500
-        curve "ease-out-expo"
-    }
-
-    window-resize {
-        duration-ms 500
-        curve "ease-out-expo"
-    }
-
-    horizontal-view-movement {
-        duration-ms 540
-        curve "ease-out-expo"
-    }
-
-    config-notification-open-close {
-        duration-ms 440
-        curve "ease-out-expo"
-    }
-
-    screenshot-ui-open {
-        duration-ms 400
-        curve "ease-out-expo"
-    }
-
-    overview-open-close {
-        duration-ms 620
-        curve "ease-out-expo"
-    }
+    workspace-switch { off; }
 }
 
 binds {
