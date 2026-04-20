@@ -12,7 +12,6 @@ in {
     ".config/niri".source = mkOutOfStoreSymlink "${configDir}/niri";
     ".config/nvim".source = mkOutOfStoreSymlink "${configDir}/nvim";
     ".config/scripts".source = mkOutOfStoreSymlink "${configDir}/scripts";
-    ".config/starship.toml".source = mkOutOfStoreSymlink "${configDir}/starship/starship.toml";
     ".config/tmux".source = mkOutOfStoreSymlink "${configDir}/tmux";
     ".config/wezterm".source = mkOutOfStoreSymlink "${configDir}/wezterm";
     ".config/yazi".source = mkOutOfStoreSymlink "${configDir}/yazi";
