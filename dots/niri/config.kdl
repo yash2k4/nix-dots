@@ -117,7 +117,7 @@ switch-events {
 }
 
 animations {
-    workspace-switch { off; }
+    off
 }
 
 binds {
