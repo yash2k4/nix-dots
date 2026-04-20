@@ -1,12 +1,9 @@
 let
   aliases = {
-    la = "eza -a --icons --group-directories-first";
-    ll = "eza -la --icons --group-directories-first --git";
     ls = "eza --icons --group-directories-first";
     satella = "sudo nixos-rebuild switch --flake ~/nix-dots#satella";
     tree = "eza --tree --icons";
     vim = "nvim";
-    c = "clear";
   };
 in {
   programs.bash = {
@@ -38,12 +35,6 @@ in {
 
       zinit ice wait"0" lucid; zinit light zsh-users/zsh-syntax-highlighting
       zinit ice wait"0" lucid; zinit light Aloxaf/fzf-tab
-
-      zinit ice wait"0" lucid; zinit snippet OMZP::git
-      zinit ice wait"0" lucid; zinit snippet OMZP::sudo
-      zinit ice wait"0" lucid; zinit snippet OMZP::aws
-      zinit ice wait"0" lucid; zinit snippet OMZP::kubectl
-      zinit ice wait"0" lucid; zinit snippet OMZP::kubectx
 
       autoload -Uz compinit
       compinit -C
