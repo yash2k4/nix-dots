@@ -1,62 +1,35 @@
+{ config, lib, pkgs, modulesPath, ... }:
+
 {
-  config,
-  lib,
-  modulesPath,
-  ...
-}: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "thunderbolt"
-    "nvme"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
-
-  boot.initrd.kernelModules = [];
-
-  boot.kernelModules = [
-    "kvm-intel"
-  ];
-
-  boot.extraModulePackages = [];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/3be38373-3879-4666-af5e-f48098fc626c";
-    fsType = "btrfs";
-
-    options = [
-      "subvol=@"
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
-  };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/3be38373-3879-4666-af5e-f48098fc626c";
-    fsType = "btrfs";
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
-    options = [
-      "subvol=@home"
-    ];
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/99d4314f-bfb5-4075-9b4c-59679378e78e";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/4E45-555C";
-    fsType = "vfat";
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/99d4314f-bfb5-4075-9b4c-59679378e78e";
+      fsType = "btrfs";
+      options = [ "subvol=@home" ];
+    };
 
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/CF95-FEF8";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
