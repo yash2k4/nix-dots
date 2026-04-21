@@ -45,8 +45,8 @@
     };
 
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
+      package = pkgs.banana-cursor;
+      name = "banana cursor";
       size = 32;
     };
   };
