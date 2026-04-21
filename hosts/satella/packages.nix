@@ -33,7 +33,6 @@
     fd
     figlet
     firefox
-    flameshot
     fortune
     fuzzel
     fzf
@@ -95,7 +94,9 @@
     rofimoji
     ruby
     rustup
+    satty
     sl
+    slurp
     sops
     starship
     swayidle
