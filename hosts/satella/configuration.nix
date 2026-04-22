@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -27,7 +26,6 @@
   };
 
   time.timeZone = "Asia/Kolkata";
-
   i18n.defaultLocale = "en_US.UTF-8";
 
   nix.settings.experimental-features = [
@@ -42,13 +40,11 @@
     zsh.enable = true;
   };
 
-  services.greetd = {
+  services.displayManager.ly = {
     enable = true;
     settings = {
-      default_session = {
-        user = "greeter";
-        command = "${pkgs.tuigreet}/bin/tuigreet --time";
-      };
+      numlock = true;
+      animation = "matrix";
     };
   };
 
@@ -56,7 +52,6 @@
     isNormalUser = true;
     description = "yash2k4";
     shell = pkgs.zsh;
-
     extraGroups = [
       "wheel"
       "networkmanager"
