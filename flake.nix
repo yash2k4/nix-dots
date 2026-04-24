@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,17 +44,16 @@
     noctalia,
     noctalia-qs,
     self,
+    sops-nix,
     spicetify-nix,
     stylix,
     ...
   } @ inputs: {
     nixosConfigurations.satella = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-
       specialArgs = {
         inherit inputs;
       };
-
       modules = [
         ./hosts/satella/configuration.nix
         nix-flatpak.nixosModules.nix-flatpak
@@ -58,18 +62,16 @@
         {
           home-manager = {
             backupFileExtension = "bak";
-
             extraSpecialArgs = {
               inherit inputs;
             };
-
             useGlobalPkgs = true;
             useUserPackages = true;
-
             users.yash2k4 = {
               imports = [
                 ./hosts/satella/home.nix
                 inputs.noctalia.homeModules.default
+                inputs.sops-nix.homeManagerModules.sops
                 spicetify-nix.homeManagerModules.default
               ];
             };

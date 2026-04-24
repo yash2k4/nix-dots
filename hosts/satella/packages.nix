@@ -37,9 +37,7 @@
     fuzzel
     fzf
     gcc
-    gh
     gimp
-    glab
     glow
     gnumake
     go
