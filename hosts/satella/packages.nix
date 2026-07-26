@@ -15,12 +15,10 @@
 
   environment.systemPackages = with pkgs; [
     acpi
-    gimp
     age
     bibata-cursors
     bootdev-cli
     brightnessctl
-    cargo-seek
     cliphist
     docker-buildx
     docker-compose
@@ -31,7 +29,6 @@
     fzf
     gcc
     gh
-    gnumake
     go
     grim
     helix
@@ -39,9 +36,7 @@
     jq
     jujutsu
     just
-    k9s
     kdePackages.kate
-    kotlin
     libnotify
     libreoffice
     localsend
@@ -54,11 +49,9 @@
     nix-output-monitor
     nodejs
     nwg-look
-    odin
     papirus-icon-theme
     pass
     pavucontrol
-    php
     postman
     python314
     python314Packages.pip
@@ -66,14 +59,11 @@
     ripgrep
     rofi-pass-wayland
     rofimoji
-    ruby
     rustup
     satty
     slurp
     sops
     swaybg
-    swayidle
-    typescript
     typst
     unzip
     vscode
@@ -81,7 +71,6 @@
     wget
     wl-clipboard
     wl-screenrec
-    zig
     zip
     zoxide
   ];
