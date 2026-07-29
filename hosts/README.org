@@ -1,6 +1,6 @@
-#+title: Hosts
+#+TITLE: Hosts
 #+AUTHOR: Yashwanth Prasannakumar (yvnth)
-#+options: toc:nil
+#+OPTIONS: toc:nil
 
 | Hostname | Alias             | Device         | Role                    |
 |----------+-------------------+----------------+-------------------------|

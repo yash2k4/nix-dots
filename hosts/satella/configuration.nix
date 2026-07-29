@@ -7,6 +7,8 @@
     ../../modules/core
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   modules = {
     audio.enable = true;
     battery.enable = true;

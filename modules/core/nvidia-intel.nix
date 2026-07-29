@@ -9,8 +9,6 @@
 
   config = lib.mkIf config.modules.nvidia-intel.enable {
     boot = {
-      kernelPackages = pkgs.linuxPackages_latest;
-
       kernelParams = [
         "nvidia-drm.modeset=1"
         "nvidia-drm.fbdev=1"
