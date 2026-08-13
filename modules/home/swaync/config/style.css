@@ -1,5 +1,4 @@
 @define-color pink #f4b8e4;
-@define-color blue #8caaee;
 @define-color flamingo #eebebe;
 @define-color red #e78284;
 @define-color rosewater #f2d5cf;
@@ -65,7 +64,7 @@
 
 .notification.low {
   background: @surface0;
-  border: 2px solid @blue;
+  border: 2px solid @pink;
 }
 
 .notification.normal {
@@ -85,7 +84,7 @@
 
 .notification.low .summary,
 .notification.low .body {
-  color: @blue;
+  color: @pink;
 }
 
 .notification.normal .summary,
