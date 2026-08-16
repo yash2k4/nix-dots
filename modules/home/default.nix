@@ -5,6 +5,7 @@
     ./fastfetch
     ./git
     ./java
+    ./kitty
     ./lazydocker
     ./lazygit
     ./mango

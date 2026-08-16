@@ -13,6 +13,7 @@
     fastfetch.enable = true;
     git.enable = true;
     java.enable = true;
+    kitty.enable = true;
     lazydocker.enable = true;
     lazygit.enable = true;
     mango.enable = true;

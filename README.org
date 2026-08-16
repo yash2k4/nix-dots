@@ -29,6 +29,6 @@ secrets/          # sops-nix encrypted secrets, per host/user
 
 - *Boot:* [[https://github.com/nix-community/lanzaboote][Lanzaboote]]
 - *Disk layout:* BTRFS encrypted root via [[https://github.com/nix-community/disko][disko]]
-- *Secrets:* [[https://github.com/Mic92/sops-nix][sops-nix]] + [[https://github.com/FiloSottile/age][age]]
+- *Secrets:* [[https://github.com/Mic92/sops-nix][sops-nix]]
 - *Theming:* [[https://github.com/nix-community/stylix][stylix]]
 - *Window manager:* [[https://github.com/mangowm/mango][mango]]

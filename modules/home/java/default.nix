@@ -11,7 +11,7 @@
   config = lib.mkIf config.homeModules.java.enable {
     home.packages = with pkgs; [
       gradle
-      jetbrains.idea-oss
+      jetbrains.idea
       jdk21
       maven
     ];

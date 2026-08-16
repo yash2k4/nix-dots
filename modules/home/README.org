@@ -4,28 +4,22 @@
 
 Each module lives in its own directory under =modules/home/=.
 
-* Adding a New Module
-
-1. Create =modules/home/<name>/default.nix=:
-
+*** 1. Create =modules/home/<name>/default.nix=
 #+begin_src nix
 { lib, config, pkgs, ... }:
 {
   options.homeModules.<name>.enable = lib.mkEnableOption "<name>";
-
   config = lib.mkIf config.homeModules.<name>.enable {
     home.packages = with pkgs; [
       <name>
     ];
-
     home.file.".config/<name>".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.files/modules/home/<name>/config";
   };
 }
 #+end_src
 
-2. Add it to =modules/home/default.nix=:
-
+*** 2. Add it to =modules/home/default.nix=
 #+begin_src nix
 imports = [
   # ...existing...
@@ -33,8 +27,7 @@ imports = [
 ];
 #+end_src
 
-3. Enable it in =hosts/<hostname>/home.nix=:
-
+*** 3. Enable it in =hosts/<hostname>/home.nix=
 #+begin_src nix
 homeModules.<name>.enable = true;
 #+end_src

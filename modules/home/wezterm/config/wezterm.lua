@@ -3,7 +3,6 @@ local colors = require("colorscheme")
 
 return {
     term = "xterm-256color",
-    max_fps = 144,
 
     font = wezterm.font_with_fallback({
         { family = "JetBrainsMono Nerd Font", weight = "Regular" },
