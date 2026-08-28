@@ -16,14 +16,15 @@
   environment.systemPackages = with pkgs; [
     acpi
     age
+    autotiling
     bibata-cursors
     bootdev-cli
     brightnessctl
     cliphist
     docker-buildx
     docker-compose
-    element-desktop
     eza
+    element-desktop
     fd
     firefox-devedition
     fzf
@@ -34,8 +35,8 @@
     helix
     imv
     jq
-    jujutsu
     just
+    jujutsu
     kdePackages.kate
     libnotify
     libreoffice

@@ -8,13 +8,13 @@
     ./kitty
     ./lazydocker
     ./lazygit
-    ./mango
     ./nix-search
     ./rofi
     ./scripts
     ./shell
     ./spicetify
     ./starship
+    ./sway
     ./swaylock
     ./swaync
     ./tmux

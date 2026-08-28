@@ -13,24 +13,24 @@ nix-shell -p git
 * 2. Clone and Partition with Disko
 
 #+begin_src bash
-git clone https://github.com/yvnth/.files.git ~/.files
+git clone https://github.com/yvnth/dotfiles.git ~/dotfiles
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- \
   --mode destroy,format,mount \
-  ~/.files/hosts/<hostname>/disko.nix
+  ~/dotfiles/hosts/<hostname>/disko.nix
 #+end_src
 
 * 3. Inject Hardware Config
 
 #+begin_src bash
 sudo nixos-generate-config --no-filesystems --root /mnt
-rm ~/.files/hosts/<hostname>/hardware-configuration.nix
-sudo cp /mnt/etc/nixos/hardware-configuration.nix ~/.files/hosts/<hostname>/hardware-configuration.nix
+rm ~/dotfiles/hosts/<hostname>/hardware-configuration.nix
+sudo cp /mnt/etc/nixos/hardware-configuration.nix ~/dotfiles/hosts/<hostname>/hardware-configuration.nix
 #+end_src
 
 * 4. Install
 
 #+begin_src bash
-sudo nixos-install --flake ~/.files#<hostname>
+sudo nixos-install --flake ~/dotfiles#<hostname>
 #+end_src
 
 * 5. Chroot and First Rebuild
@@ -47,11 +47,11 @@ Inside the chroot:
 
 #+begin_src bash
 passwd yvnth
-su - yvnth -c 'git clone https://github.com/yvnth/.files.git ~/.files'
-rm /home/yvnth/.files/hosts/<hostname>/hardware-configuration.nix
-cp /etc/nixos/hardware-configuration.nix /home/yvnth/.files/hosts/<hostname>/hardware-configuration.nix
-chown yvnth:users /home/yvnth/.files/hosts/<hostname>/hardware-configuration.nix
-nixos-rebuild switch --flake /home/yvnth/.files#<hostname>
+su - yvnth -c 'git clone https://github.com/yvnth/dotfiles.git ~/dotfiles'
+rm /home/yvnth/dotfiles/hosts/<hostname>/hardware-configuration.nix
+cp /etc/nixos/hardware-configuration.nix /home/yvnth/dotfiles/hosts/<hostname>/hardware-configuration.nix
+chown yvnth:users /home/yvnth/dotfiles/hosts/<hostname>/hardware-configuration.nix
+nixos-rebuild switch --flake /home/yvnth/dotfiles#<hostname>
 exit
 #+end_src
 
@@ -79,7 +79,7 @@ sudo find /var/lib/sbctl/keys -name "*.key" -exec chmod 600 {} \;
 * 8. Build and Switch
 
 #+begin_src bash
-sudo nixos-rebuild switch --flake ~/.files#<hostname>
+sudo nixos-rebuild switch --flake ~/dotfiles#<hostname>
 reboot
 #+end_src
 

@@ -39,9 +39,15 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   programs = {
-    mango.enable = true;
     xwayland.enable = true;
     zsh.enable = true;
+    sway = {
+      enable = true;
+      package = pkgs.sway;
+      extraOptions = [
+        "--unsupported-gpu"
+      ];
+    };
   };
 
   security.pam.services.swaylock = { };
@@ -72,7 +78,17 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    config = {
+      sway = {
+        "org.freedesktop.impl.portal.ScreenCast" = [
+          "wlr"
+        ];
+      };
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
   };
 
   system.stateVersion = "25.11";

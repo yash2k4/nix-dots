@@ -16,12 +16,12 @@
     kitty.enable = true;
     lazydocker.enable = true;
     lazygit.enable = true;
-    mango.enable = true;
     nix-search.enable = true;
     rofi.enable = true;
     shell.enable = true;
     spicetify.enable = true;
     starship.enable = true;
+    sway.enable = true;
     swaylock.enable = true;
     swaync.enable = true;
     tmux.enable = true;

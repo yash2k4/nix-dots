@@ -80,5 +80,5 @@ sops.secrets.<name> = {
 * 6. Build and Switch
 
 #+begin_src bash
-sudo nixos-rebuild switch --flake ~/.files#<hostname>
+sudo nixos-rebuild switch --flake ~/dotfiles#<hostname>
 #+end_src

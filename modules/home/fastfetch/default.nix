@@ -14,6 +14,6 @@
     ];
 
     home.file.".config/fastfetch".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.files/modules/home/fastfetch/config";
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home/fastfetch/config";
   };
 }

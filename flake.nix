@@ -22,11 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
@@ -54,11 +49,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    waybar = {
-      url = "github:Alexays/Waybar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -67,19 +57,21 @@
       fast-nix-gc,
       home-manager,
       lanzaboote,
-      mangowm,
       nix-flatpak,
       nixmacs,
       nixpkgs,
       sops-nix,
       spicetify-nix,
       stylix,
-      waybar,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+    in
     {
       nixosConfigurations.satella = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
+
         specialArgs = {
           inherit inputs;
         };
@@ -90,15 +82,14 @@
           fast-nix-gc.nixosModules.default
           home-manager.nixosModules.home-manager
           lanzaboote.nixosModules.lanzaboote
-          mangowm.nixosModules.mango
           nix-flatpak.nixosModules.nix-flatpak
           sops-nix.nixosModules.sops
           stylix.nixosModules.stylix
 
           {
             nixpkgs.overlays = [
-              waybar.overlays.default
               nixmacs.inputs.emacs-overlay.overlays.default
+
               (final: prev: {
                 xdg-desktop-portal-wlr = prev.xdg-desktop-portal-wlr.overrideAttrs (_: {
                   version = "0.7.0";
