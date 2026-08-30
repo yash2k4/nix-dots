@@ -53,6 +53,7 @@
     papirus-icon-theme
     pass
     pavucontrol
+    pokego
     postman
     python314
     python314Packages.pip

@@ -5,7 +5,6 @@
     ./fastfetch
     ./git
     ./java
-    ./kitty
     ./lazydocker
     ./lazygit
     ./nix-search

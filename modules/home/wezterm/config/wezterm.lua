@@ -7,7 +7,7 @@ return {
     font = wezterm.font_with_fallback({
         { family = "JetBrainsMono Nerd Font", weight = "Regular" },
     }),
-    font_size = 22.0,
+    font_size = 20.0,
     line_height = 1.00,
 
     harfbuzz_features = { "calt=0", "clig=0", "liga=0" },

@@ -25,3 +25,5 @@ source ~/.config/shell/aliases
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash --cmd cd)"
+
+pokego --random 1-8
