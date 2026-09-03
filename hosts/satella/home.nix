@@ -15,6 +15,7 @@
     java.enable = true;
     lazydocker.enable = true;
     lazygit.enable = true;
+    miru.enable = true;
     nix-search.enable = true;
     rofi.enable = true;
     shell.enable = true;

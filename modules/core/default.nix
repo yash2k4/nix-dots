@@ -4,6 +4,7 @@
     ./audio.nix
     ./battery.nix
     ./flatpak.nix
+    ./gaming.nix
     ./lanzaboote.nix
     ./networking.nix
     ./nix.nix

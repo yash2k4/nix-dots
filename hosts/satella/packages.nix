@@ -68,6 +68,7 @@
     swaybg
     typst
     unzip
+    vlc
     vscode
     waytrogen
     wget

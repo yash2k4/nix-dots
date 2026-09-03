@@ -7,6 +7,7 @@
     ./java
     ./lazydocker
     ./lazygit
+    ./miru
     ./nix-search
     ./rofi
     ./scripts
