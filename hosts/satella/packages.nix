@@ -59,7 +59,6 @@
     python314Packages.pip
     python314Packages.uv
     ripgrep
-    rofi-pass-wayland
     rofimoji
     rustup
     satty

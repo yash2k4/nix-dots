@@ -6,10 +6,6 @@ _default:
 rebuild host=hostname:
     nh os switch . -H {{ host }}
 
-update host=hostname:
-    nix flake update
-    nh os switch . -H {{ host }}
-
 check:
     nix flake check
 

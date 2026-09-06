@@ -64,7 +64,6 @@ bindsym $mod+Ctrl+space exec cliphist list | $menu -dmenu -display-columns 2 | c
 bindsym $mod+Mod1+space exec rofimoji --selector "$menu" --action copy
 bindsym $mod+b exec $browser
 bindsym $mod+e exec emacs
-bindsym $mod+p exec rofi-pass
 bindsym $mod+z exec miructl toggle
 bindsym $mod+Shift+Escape exec swaylock -f
 
